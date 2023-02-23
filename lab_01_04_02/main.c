@@ -5,7 +5,8 @@
 
 #include <stdio.h>
 
-int main() {
+int main()
+{
     // Input
     long long int seconds;
     scanf("%lld", &seconds);

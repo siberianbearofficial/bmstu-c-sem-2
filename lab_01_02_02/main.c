@@ -6,7 +6,8 @@
 #include <stdio.h>
 #include <math.h>
 
-int main() {
+int main()
+{
     // Input
     double xa, ya, xb, yb, xc, yc;
     scanf("%lf%lf%lf%lf%lf%lf", &xa, &ya, &xb, &yb, &xc, &yc);

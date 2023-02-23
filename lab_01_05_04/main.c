@@ -5,13 +5,14 @@
 
 #include <stdio.h>
 
-int main() {
+int main()
+{
     // Input
     long long int n;
     scanf("%lld", &n);
 
     // Calculations & Output
-    printf("Prime factorization: ")
+    printf("Prime factorization: ");
     if (n != 1) {
         long long int div = 2;
         while (n > 1) {

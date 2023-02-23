@@ -6,43 +6,54 @@
 
 #include <stdio.h>
 
-int point_belongs_segment();
-double max();
-double min();
+short point_belongs_segment(double, double, double, double, double, double);
+double max(double, double);
+double min(double, double);
 
-int main() {
+int main()
+{
+    short exit_code = 0;
+
     // Input
     double xq, yq, xr, yr, xp, yp;
-    scanf("%lf%lf%lf%lf%lf%lf", &xq, &yq, &xr, &yr, &xp, &yp);
+    printf("Enter coordinates: ");
+    short rc = scanf("%lf%lf%lf%lf%lf%lf", &xq, &yq, &xr, &yr, &xp, &yp);
 
-    // Calculations
-    int belongs = point_belongs_segment(xq, yq, xr, yr, xp, yp);
+    if (rc == 6) {
+        // Calculations
+        short belongs = point_belongs_segment(xq, yq, xr, yr, xp, yp);
 
-    // Output
-    printf("Point belongs to segment: %d", belongs);
-    return 0;
+        // Output
+        printf("Point belongs to segment: %d", belongs);
+    } else {
+        exit_code = 1;
+    }
+
+    return exit_code;
 }
 
-double max(double a, double b) {
+double max(double a, double b)
+{
     double max_a_b = a;
-    if (b > a) max_a_b = b;
+    if (b > a)
+        max_a_b = b;
     return max_a_b;
 }
 
-double min(double a, double b) {
+double min(double a, double b)
+{
     double min_a_b = a;
-    if (b < a) min_a_b = b;
+    if (b < a)
+        min_a_b = b;
     return min_a_b;
 }
 
-int point_belongs_segment(double xq, double yq, double xr, double yr, double xp, double yp) {
-    double k_qr = (yr - yq) / (xr - xq);
-    double k_qp = (yp - yq) / (xp - xq);
-
-    int appropriate_line = k_qr == k_qp;
-    int appropriate_x_value = min(xq, xr) <= xp && xp <= max(xq, xr);
-    int appropriate_y_value = min(yq, yr) <= yp && yp <= max(yq, yr);
-    int belongs = appropriate_line && appropriate_x_value && appropriate_y_value;
+short point_belongs_segment(double xq, double yq, double xr, double yr, double xp, double yp)
+{
+    short appropriate_line = ((yr - yq) / (xr - xq)) == ((yp - yq) / (xp - xq));
+    short appropriate_x_value = min(xq, xr) <= xp && xp <= max(xq, xr);
+    short appropriate_y_value = min(yq, yr) <= yp && yp <= max(yq, yr);
+    short belongs = appropriate_line && appropriate_x_value && appropriate_y_value;
 
     return belongs;
 }

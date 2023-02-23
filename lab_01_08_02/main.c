@@ -6,46 +6,56 @@
 
 #include <stdio.h>
 
-
-void binary_output(unsigned long long int);
-
-
+void binary_output(unsigned long);
 unsigned int move(unsigned int, int);
 
+int main()
+{
+    short exit_code = 0;
 
-int main() {
     // Input
     unsigned int a;
     int n;
-    scanf("%u%d", &a, &n);
+    printf("Input a & n: ");
+    short rc = scanf("%u%d", &a, &n);
 
-    // Calculations
-    a = move(a, n);
+    if (rc == 2)
+    {
+        // Calculations
+        a = move(a, n);
 
-    // Output
-    binary_output(a);
-    return 0;
+        // Output
+        binary_output(a);
+    } else
+    {
+        exit_code = 1;
+    }
+
+    return exit_code;
 }
 
-
-unsigned int move(unsigned int a, int n) {
+unsigned int move(unsigned int a, int n)
+{
     a = (a << n) | (a >> (32 - n));
     return a;
 }
 
-
-void binary_output(unsigned long long int dec) {
-    unsigned long long int v = 2147483648;
-    int insignificant_zeros = 1;
+void binary_output(unsigned long dec)
+{
+    unsigned long v = 2147483648;
+    short insignificant_zeros = 1;
 
     printf("Result: ");
 
-    for (int i = 1; i <= 32; i++) {
-        if (dec >= v) {
+    for (short i = 1; i <= 32; i++)
+    {
+        if (dec >= v)
+        {
             printf("1");
             dec -= v;
             insignificant_zeros = 0;
-        } else if (insignificant_zeros == 0) {
+        } else if (insignificant_zeros == 0)
+        {
             printf("0");
         }
         v /= 2;

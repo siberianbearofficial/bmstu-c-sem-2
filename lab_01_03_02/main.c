@@ -6,15 +6,16 @@
 
 #include <stdio.h>
 
-int main() {
+int main()
+{
     // Input
-    double R1, R2, R3;
-    scanf("%lf%lf%lf", &R1, &R2, &R3);
+    double r1, r2, r3;
+    scanf("%lf%lf%lf", &r1, &r2, &r3);
 
     // Calculations
-    double R = 1 / (1 / R1 + 1 / R2 + 1 / R3);
+    double r = 1 / (1 / r1 + 1 / r2 + 1 / r3);
 
     // Output
-    printf("Total resistance: %.6lf", R);
+    printf("Total resistance: %.6lf", r);
     return 0;
 }

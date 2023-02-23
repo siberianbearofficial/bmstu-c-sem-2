@@ -6,37 +6,63 @@
 #include <stdio.h>
 #include <math.h>
 
+double input_seq_and_calc_res();
 
-double input_sequence_and_calculate_result();
+int main()
+{
+    short exit_code = 0;
 
-
-int main() {
     // Input & Calculations
-    double res = input_sequence_and_calculate_result();
+    double res = input_seq_and_calc_res();
 
-    // Output
-    printf("Result: %lf", res);
-    return 0;
+    if (res != -1.)
+    {
+        // Output
+        printf("Result: %lf", res);
+    } else
+    {
+        exit_code = 1;
+    }
+
+    return exit_code;
 }
 
-
-double input_sequence_and_calculate_result() {
+double input_seq_and_calc_res()
+{
     int n = 0;
+
+    short rc;
+    double res;
 
     double sum = 0;
     double x;
 
-    while (1) {
-        scanf("%lf", &x);
-        if (x < 0) break;
-        n++;
-        sum += sqrt(n + x);
+    printf("Input seq elements: ");
+
+    short loop = 1;
+    while (loop)
+    {
+        rc = scanf("%lf", &x);
+        if (rc == 1)
+        {
+            if (x < 0)
+            {
+                loop = 0;
+            } else
+            {
+                n++;
+                sum += sqrt(n + x);
+            }
+        } else
+        {
+            res = -1.;
+            loop = 0;
+        }
     }
 
-    double res;
-    if (n == 0)
+    if (res != -1. && n == 0)
         res = 0;
-    else
+    else if (res != -1.)
         res = 1. / n * sum;
 
     return res;
