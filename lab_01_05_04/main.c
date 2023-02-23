@@ -13,15 +13,20 @@ int main()
 
     // Calculations & Output
     printf("Prime factorization: ");
-    if (n != 1) {
+    if (n != 1)
+    {
         long long int div = 2;
-        while (n > 1) {
-            while (n % div == 0) {
+        while (n > 1)
+        {
+            while (n % div == 0)
+            {
                 printf("%lld ", div);
-                n = n / div;
+                n /= div;
             }
-            if (div == 2) div++;
-            else div += 2;
+            if (div == 2)
+                div++;
+            else
+                div += 2;
         }
     }
 

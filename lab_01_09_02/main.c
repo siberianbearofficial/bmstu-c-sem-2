@@ -6,20 +6,21 @@
 #include <stdio.h>
 #include <math.h>
 
-double input_seq_and_calc_res();
+float input_seq_and_calc_res();
 
 int main()
 {
     short exit_code = 0;
 
     // Input & Calculations
-    double res = input_seq_and_calc_res();
+    float res = input_seq_and_calc_res();
 
     if (res != -1.)
     {
         // Output
-        printf("Result: %lf", res);
-    } else
+        printf("Result: %.6f", res);
+    }
+    else
     {
         exit_code = 1;
     }
@@ -27,33 +28,35 @@ int main()
     return exit_code;
 }
 
-double input_seq_and_calc_res()
+float input_seq_and_calc_res()
 {
     int n = 0;
 
     short rc;
-    double res;
+    float res;
 
-    double sum = 0;
-    double x;
+    float sum = 0;
+    float x;
 
     printf("Input seq elements: ");
 
     short loop = 1;
     while (loop)
     {
-        rc = scanf("%lf", &x);
+        rc = scanf("%f", &x);
         if (rc == 1)
         {
             if (x < 0)
             {
                 loop = 0;
-            } else
+            }
+            else
             {
                 n++;
                 sum += sqrt(n + x);
             }
-        } else
+        }
+        else
         {
             res = -1.;
             loop = 0;

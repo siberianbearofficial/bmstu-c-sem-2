@@ -11,8 +11,6 @@ unsigned int move(unsigned int, int);
 
 int main()
 {
-    short exit_code = 0;
-
     // Input
     unsigned int a;
     int n;
@@ -26,12 +24,13 @@ int main()
 
         // Output
         binary_output(a);
-    } else
+    }
+    else
     {
-        exit_code = 1;
+        printf("Error: bad input");
     }
 
-    return exit_code;
+    return 0;
 }
 
 unsigned int move(unsigned int a, int n)
@@ -54,7 +53,8 @@ void binary_output(unsigned long dec)
             printf("1");
             dec -= v;
             insignificant_zeros = 0;
-        } else if (insignificant_zeros == 0)
+        }
+        else if (insignificant_zeros == 0)
         {
             printf("0");
         }
