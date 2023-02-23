@@ -24,8 +24,13 @@ int main()
         // Calculations
         short belongs = point_belongs_segment(xq, yq, xr, yr, xp, yp);
 
-        // Output
-        printf("Point belongs to segment: %d", belongs);
+        if (belongs != -1)
+        {
+            // Output
+            printf("Point belongs to segment: %d", belongs);
+        }
+        else
+            exit_code = 1;
     }
     else
     {
@@ -64,9 +69,16 @@ short point_belongs_segment(double xq, double yq, double xr, double yr, double x
 
     if (is_rq_vertical_line)
     {
-        appropriate_line = xr == xp;
-        appropriate_y_value = min(yq, yr) <= yp && yp <= max(yq, yr);
-        belongs = appropriate_line && appropriate_y_value;
+        if (yr == yq)
+        {
+            belongs = -1;
+        }
+        else
+        {
+            appropriate_line = xr == xp;
+            appropriate_y_value = min(yq, yr) <= yp && yp <= max(yq, yr);
+            belongs = appropriate_line && appropriate_y_value;
+        }
     }
     else if (!is_pq_vertical_line)
     {

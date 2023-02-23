@@ -13,7 +13,7 @@ double get_rel_error(double, double);
 
 int main()
 {
-    short exit_code = 0;
+    char exit_code = 0;
 
     // Input
     double x, eps;
@@ -48,38 +48,42 @@ int main()
 
 double f(double x)
 {
-    double fx = 1 / pow(1 + x, 3);
-    return fx;
+    return 1 / pow(1 + x, 3);
 }
 
 double s(double x, double eps)
 {
     double sx = 1;
     int num = 2;
-    while (1)
+
+    char loop = 1;
+    while (loop)
     {
         double current = num * (num + 1) * pow(-x, num - 1) / 2;
-        if (fabs(current) < eps)
-            break;
-        num++;
-        sx += current;
+        if (fabs(current) >= eps)
+        {
+            num++;
+            sx += current;
+        }
+        else
+        {
+            loop = 0;
+        }
     }
     return sx;
 }
 
 double get_abs_error(double val1, double val2)
 {
-    double abs_error = fabs(val1 - val2);
-    return abs_error;
+    return fabs(val1 - val2);
 }
 
 double get_rel_error(double abs_error, double val1)
 {
     double rel_error;
-    double fabs_val1 = fabs(val1);
 
-    if (fabs_val1 != 0)
-        rel_error = abs_error / fabs_val1;
+    if (fabs(val1) != 0)
+        rel_error = abs_error / fabs(val1);
     else
         rel_error = -1.;
 

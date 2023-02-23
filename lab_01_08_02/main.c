@@ -6,12 +6,12 @@
 
 #include <stdio.h>
 
-short binary_output(unsigned long);
+char binary_output(unsigned);
 unsigned move(unsigned, int);
 
 int main()
 {
-    short exit_code;
+    char exit_code;
 
     // Input
     unsigned a;
@@ -36,6 +36,7 @@ int main()
     {
         printf("Error: bad input");
     }
+
     return exit_code;
 }
 
@@ -45,30 +46,22 @@ unsigned move(unsigned a, int n)
     return a;
 }
 
-short binary_output(unsigned long dec)
+char binary_output(unsigned dec)
 {
-    short exit_code = 0;
+    char exit_code = 0;
 
     if (dec > 0)
     {
-        unsigned long v = 2147483648;
-        short insignificant_zeros = 1;
-
+        unsigned char sym;
+        char insignificant_zeros = 1;
         printf("Result: ");
-
-        for (short i = 1; i <= 32; i++)
+        for (char i = 31; i >= 0; i--)
         {
-            if (dec >= v)
-            {
-                printf("1");
-                dec -= v;
+            sym = (dec >> i) & 1;
+            if (sym)
                 insignificant_zeros = 0;
-            }
-            else if (insignificant_zeros == 0)
-            {
-                printf("0");
-            }
-            v /= 2;
+            if (!insignificant_zeros)
+                printf("%u", sym);
         }
     }
     else

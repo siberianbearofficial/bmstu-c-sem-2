@@ -4,23 +4,24 @@
 */
 
 #include <stdio.h>
+#include <math.h>
 
-void print_prime_factorization(long);
+void print_prime_factorization(unsigned);
 
 int main()
 {
-    short exit_code = 0;
+    char exit_code = 0;
 
     // Input
-    long n;
+    float n;
     printf("Input n: ");
-    short rc = scanf("%ld", &n);
+    short rc = scanf("%f", &n);
 
-    if (rc == 1 && n > 1)
+    if (rc == 1 && n > 1 && ceilf(n) == floorf(n))
     {
-        print_prime_factorization(n);
+        print_prime_factorization((unsigned) n);
     }
-    else if (n < 1)
+    else if (n != 1)
     {
         exit_code = 1;
     }
@@ -28,17 +29,17 @@ int main()
     return exit_code;
 }
 
-void print_prime_factorization(long n)
+void print_prime_factorization(unsigned n)
 {
     // Calculations & Output
     printf("Prime factorization: ");
 
-    long div = 2;
+    unsigned div = 2;
     while (n > 1)
     {
         while (n % div == 0)
         {
-            printf("%ld ", div);
+            printf("%u ", div);
             n /= div;
         }
         if (div == 2)
