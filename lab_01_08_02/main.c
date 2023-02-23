@@ -7,19 +7,19 @@
 #include <stdio.h>
 
 short binary_output(unsigned long);
-unsigned int move(unsigned int, int);
+unsigned move(unsigned, int);
 
 int main()
 {
-    short exit_code = 0;
+    short exit_code;
 
     // Input
-    int a;
+    unsigned a;
     int n;
     printf("Input a & n: ");
-    short rc = scanf("%d%d", &a, &n);
+    short rc = scanf("%u%d", &a, &n);
 
-    if (rc == 2 && a >= 0)
+    if (rc == 2)
     {
         // Calculations
         a = move(a, n);
@@ -36,11 +36,10 @@ int main()
     {
         printf("Error: bad input");
     }
-
     return exit_code;
 }
 
-unsigned int move(unsigned int a, int n)
+unsigned move(unsigned a, int n)
 {
     a = (a << n) | (a >> (32 - n));
     return a;

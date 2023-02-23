@@ -20,7 +20,7 @@ int main()
     {
         print_prime_factorization(n);
     }
-    else if (rc != 1)
+    else if (n < 1)
     {
         exit_code = 1;
     }

@@ -32,16 +32,13 @@ int main()
 float input_seq_and_calc_res()
 {
     int n = 0;
-
     short rc;
-    float res;
-
-    float sum = 0;
+    float res = 0;
     float x;
+    bool loop = true;
 
     printf("Input seq elements: ");
 
-    bool loop = true;
     while (loop)
     {
         rc = scanf("%f", &x);
@@ -54,7 +51,7 @@ float input_seq_and_calc_res()
             else
             {
                 n++;
-                sum += sqrt(n + x);
+                res += sqrt(n + x);
             }
         }
         else
@@ -67,7 +64,7 @@ float input_seq_and_calc_res()
     if (n == 0)
         res = -1.;
     else if (res != -1.)
-        res = 1. / n * sum;
+        res /= n;
 
     return res;
 }
