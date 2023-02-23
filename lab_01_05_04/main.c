@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void print_prime_factorization(unsigned);
+void print_prime_factorization(unsigned short);
 
 int main()
 {
@@ -15,11 +15,11 @@ int main()
     // Input
     float n;
     printf("Input n: ");
-    short rc = scanf("%f", &n);
+    char rc = scanf("%f", &n);
 
     if (rc == 1 && n > 1 && ceilf(n) == floorf(n))
     {
-        print_prime_factorization((unsigned) n);
+        print_prime_factorization((unsigned short) n);
     }
     else if (n != 1)
     {
@@ -29,12 +29,12 @@ int main()
     return exit_code;
 }
 
-void print_prime_factorization(unsigned n)
+void print_prime_factorization(unsigned short n)
 {
     // Calculations & Output
     printf("Prime factorization: ");
 
-    unsigned div = 2;
+    unsigned short div = 2;
     while (n > 1)
     {
         while (n % div == 0)
