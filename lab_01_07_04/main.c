@@ -14,6 +14,7 @@ double get_rel_error(double, double);
 int main()
 {
     short exit_code = 0;
+
     // Input
     double x, eps;
     printf("Input x & eps: ");

@@ -62,13 +62,13 @@ short point_belongs_segment(double xq, double yq, double xr, double yr, double x
     short appropriate_x_value;
     short appropriate_y_value;
 
-    if (is_rq_vertical_line && is_pq_vertical_line)
+    if (is_rq_vertical_line)
     {
         appropriate_line = xr == xp;
         appropriate_y_value = min(yq, yr) <= yp && yp <= max(yq, yr);
         belongs = appropriate_line && appropriate_y_value;
     }
-    else if (!is_rq_vertical_line && !is_pq_vertical_line)
+    else if (!is_pq_vertical_line)
     {
         appropriate_line = ((yr - yq) / (xr - xq)) == ((yp - yq) / (xp - xq));
         appropriate_x_value = min(xq, xr) <= xp && xp <= max(xq, xr);

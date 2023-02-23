@@ -5,12 +5,13 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 
 float input_seq_and_calc_res();
 
 int main()
 {
-    short exit_code = 0;
+    bool exit_code = false;
 
     // Input & Calculations
     float res = input_seq_and_calc_res();
@@ -22,7 +23,7 @@ int main()
     }
     else
     {
-        exit_code = 1;
+        exit_code = true;
     }
 
     return exit_code;
@@ -40,7 +41,7 @@ float input_seq_and_calc_res()
 
     printf("Input seq elements: ");
 
-    short loop = 1;
+    bool loop = true;
     while (loop)
     {
         rc = scanf("%f", &x);
@@ -48,7 +49,7 @@ float input_seq_and_calc_res()
         {
             if (x < 0)
             {
-                loop = 0;
+                loop = false;
             }
             else
             {
@@ -59,12 +60,12 @@ float input_seq_and_calc_res()
         else
         {
             res = -1.;
-            loop = 0;
+            loop = false;
         }
     }
 
-    if (res != -1. && n == 0)
-        res = 0;
+    if (n == 0)
+        res = -1.;
     else if (res != -1.)
         res = 1. / n * sum;
 

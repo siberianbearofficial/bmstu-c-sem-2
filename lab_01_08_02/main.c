@@ -6,31 +6,38 @@
 
 #include <stdio.h>
 
-void binary_output(unsigned long);
+short binary_output(unsigned long);
 unsigned int move(unsigned int, int);
 
 int main()
 {
+    short exit_code = 0;
+
     // Input
-    unsigned int a;
+    int a;
     int n;
     printf("Input a & n: ");
-    short rc = scanf("%u%d", &a, &n);
+    short rc = scanf("%d%d", &a, &n);
 
-    if (rc == 2)
+    if (rc == 2 && a >= 0)
     {
         // Calculations
         a = move(a, n);
 
         // Output
-        binary_output(a);
+        exit_code = binary_output(a);
     }
     else
+    {
+        exit_code = 1;
+    }
+
+    if (exit_code)
     {
         printf("Error: bad input");
     }
 
-    return 0;
+    return exit_code;
 }
 
 unsigned int move(unsigned int a, int n)
@@ -39,25 +46,36 @@ unsigned int move(unsigned int a, int n)
     return a;
 }
 
-void binary_output(unsigned long dec)
+short binary_output(unsigned long dec)
 {
-    unsigned long v = 2147483648;
-    short insignificant_zeros = 1;
+    short exit_code = 0;
 
-    printf("Result: ");
-
-    for (short i = 1; i <= 32; i++)
+    if (dec > 0)
     {
-        if (dec >= v)
+        unsigned long v = 2147483648;
+        short insignificant_zeros = 1;
+
+        printf("Result: ");
+
+        for (short i = 1; i <= 32; i++)
         {
-            printf("1");
-            dec -= v;
-            insignificant_zeros = 0;
+            if (dec >= v)
+            {
+                printf("1");
+                dec -= v;
+                insignificant_zeros = 0;
+            }
+            else if (insignificant_zeros == 0)
+            {
+                printf("0");
+            }
+            v /= 2;
         }
-        else if (insignificant_zeros == 0)
-        {
-            printf("0");
-        }
-        v /= 2;
     }
+    else
+    {
+        exit_code = 1;
+    }
+
+    return exit_code;
 }
