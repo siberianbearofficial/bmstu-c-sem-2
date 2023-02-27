@@ -13,13 +13,14 @@ int main()
     char exit_code = 0;
 
     // Input
-    float n;
+    int n;
+    char tmp;
     printf("Input n: ");
-    char rc = scanf("%f", &n);
+    char rc = scanf("%d%c", &n, &tmp);
 
-    if (rc == 1 && n > 1 && ceilf(n) == floorf(n))
+    if ((rc == 2 || rc == EOF) && tmp == '\n' && n > 1)
     {
-        print_prime_factorization((unsigned short) n);
+        print_prime_factorization((unsigned short ) n);
     }
     else if (n != 1)
     {
