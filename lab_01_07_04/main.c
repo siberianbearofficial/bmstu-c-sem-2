@@ -25,11 +25,11 @@ int main()
         // Calculations
         double sx = s(x, eps);
         double fx = f(x);
-        double abs_error = get_abs_error(fx, sx);
-        double rel_error = get_rel_error(abs_error, fx);
+        double rel_error = get_rel_error(fx, fx);
 
-        if (rel_error != -1.)
+        if (rel_error >= 0)
         {
+            double abs_error = get_abs_error(fx, sx);
             // Output
             printf("S(x): %.6f F(x): %.6f Absolute error: %.6f Relative error: %.6f", sx, fx, abs_error, rel_error);
         }
@@ -70,6 +70,7 @@ double s(double x, double eps)
             loop = 0;
         }
     }
+
     return sx;
 }
 
@@ -78,14 +79,16 @@ double get_abs_error(double val1, double val2)
     return fabs(val1 - val2);
 }
 
-double get_rel_error(double abs_error, double val1)
+double get_rel_error(double val1, double val2)
 {
     double rel_error;
 
     if (fabs(val1) != 0)
-        rel_error = abs_error / fabs(val1);
+        rel_error = get_abs_error(val1, val2) / fabs(val1);
     else
-        rel_error = -1.;
+    {
+        rel_error = -1 * (++val2);
+    }
 
     return rel_error;
 }

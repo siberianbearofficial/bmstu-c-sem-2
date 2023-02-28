@@ -1,1 +1,6 @@
-lab_01_05_04/.idea/lab_01_05_04.iml lab_01_05_04/.idea/modules.xml lab_01_05_04/.idea/vcs.xml lab_01_05_04/.idea/workspace.xml
+**/.idea/**
+*.exe
+*.out
+*.o
+*.pch
+*.gch

@@ -1,6 +1,6 @@
 /**
  Составить программу для печати разложения на простые множители заданного
- натурального числа n.Если n равно 1, печатать ничего не надо.
+ натурального числа n. Если n равно 1, печатать ничего не надо.
 */
 
 #include <stdio.h>
@@ -13,14 +13,13 @@ int main()
     char exit_code = 0;
 
     // Input
-    int n;
-    char tmp;
+    float n;
     printf("Input n: ");
-    char rc = scanf("%d%c", &n, &tmp);
+    char rc = scanf("%f", &n);
 
-    if ((rc == 2 || rc == EOF) && tmp == '\n' && n > 1)
+    if (rc == 1 && n > 1 && ceilf(n) == floorf(n))
     {
-        print_prime_factorization((unsigned short ) n);
+        print_prime_factorization((unsigned short) n);
     }
     else if (n != 1)
     {

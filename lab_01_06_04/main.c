@@ -71,7 +71,10 @@ short point_belongs_segment(double xq, double yq, double xr, double yr, double x
     {
         if (yr == yq)
         {
-            belongs = -1;
+            if (xr == xp && yr == yp)
+                belongs = 1;
+            else
+                belongs = -1;
         }
         else
         {

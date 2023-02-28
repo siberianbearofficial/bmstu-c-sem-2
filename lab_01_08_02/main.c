@@ -6,26 +6,25 @@
 
 #include <stdio.h>
 
-char binary_output(unsigned);
-unsigned move(unsigned, int);
+void binary_output(unsigned);
+unsigned move(unsigned, char);
 
 int main()
 {
-    char exit_code;
+    char exit_code = 0;
 
     // Input
     unsigned a;
     int n;
     printf("Input a & n: ");
-    short rc = scanf("%u%d", &a, &n);
 
-    if (rc == 2)
+    if (scanf("%u%d", &a, &n) == 2)
     {
         // Calculations
-        a = move(a, n);
+        a = move(a, (char) (n % 32));
 
         // Output
-        exit_code = binary_output(a);
+        binary_output(a);
     }
     else
     {
@@ -40,34 +39,17 @@ int main()
     return exit_code;
 }
 
-unsigned move(unsigned a, int n)
+unsigned move(unsigned a, char n)
 {
     a = (a << n) | (a >> (32 - n));
     return a;
 }
 
-char binary_output(unsigned dec)
+void binary_output(unsigned dec)
 {
-    char exit_code = 0;
-
-    if (dec > 0)
+    printf("Result: ");
+    for (char i = 31; i >= 0; i--)
     {
-        unsigned char sym;
-        char insignificant_zeros = 1;
-        printf("Result: ");
-        for (char i = 31; i >= 0; i--)
-        {
-            sym = (dec >> i) & 1;
-            if (sym)
-                insignificant_zeros = 0;
-            if (!insignificant_zeros)
-                printf("%u", sym);
-        }
+        printf("%u", (dec >> i) & 1);
     }
-    else
-    {
-        exit_code = 1;
-    }
-
-    return exit_code;
 }
