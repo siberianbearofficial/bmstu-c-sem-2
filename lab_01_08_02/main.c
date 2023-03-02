@@ -5,6 +5,7 @@
 */
 
 #include <stdio.h>
+#include <math.h>
 
 void binary_output(unsigned);
 unsigned move(unsigned, char);
@@ -15,13 +16,13 @@ int main()
 
     // Input
     unsigned a;
-    int n;
+    float n;
     printf("Input a & n: ");
 
-    if (scanf("%u%d", &a, &n) == 2)
+    if ((scanf("%u%f", &a, &n) == 2) && (floorf(n) == ceilf(n)))
     {
         // Calculations
-        a = move(a, (char) (n % 32));
+        a = move(a, (char) ((int) n % 32));
 
         // Output
         binary_output(a);

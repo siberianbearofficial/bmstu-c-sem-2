@@ -4,3 +4,4 @@
 *.o
 *.pch
 *.gch
+results.txt

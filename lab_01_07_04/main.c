@@ -10,6 +10,7 @@ double f(double);
 double s(double, double);
 double get_abs_error(double, double);
 double get_rel_error(double, double);
+char doubles_are_equal(double, double);
 
 int main()
 {
@@ -20,14 +21,14 @@ int main()
     printf("Input x & eps: ");
     short rc = scanf("%lf%lf", &x, &eps);
 
-    if (rc == 2 && eps > 0 && eps <= 1 && fabs(x) < 1)
+    if (rc == 2 && eps > 0 && (eps < 1 || doubles_are_equal(eps, 1)) && fabs(x) < 1)
     {
         // Calculations
         double sx = s(x, eps);
         double fx = f(x);
         double rel_error = get_rel_error(fx, fx);
 
-        if (rel_error >= 0)
+        if (rel_error > 0 || doubles_are_equal(rel_error, 0))
         {
             double abs_error = get_abs_error(fx, sx);
             // Output
@@ -60,7 +61,7 @@ double s(double x, double eps)
     while (loop)
     {
         double current = num * (num + 1) * pow(-x, num - 1) / 2;
-        if (fabs(current) >= eps)
+        if (fabs(current) > eps || doubles_are_equal(current, eps))
         {
             num++;
             sx += current;
@@ -83,12 +84,18 @@ double get_rel_error(double val1, double val2)
 {
     double rel_error;
 
-    if (fabs(val1) != 0)
+    if (!doubles_are_equal(fabs(val1), 0))
         rel_error = get_abs_error(val1, val2) / fabs(val1);
     else
     {
-        rel_error = -1 * (++val2);
+        rel_error = -100 * (++val2);
     }
 
     return rel_error;
+}
+
+char doubles_are_equal(double a, double b)
+{
+    double eps = 0.000001;
+    return (char) (fabs(a - b) < eps);
 }

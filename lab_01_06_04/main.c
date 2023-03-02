@@ -5,14 +5,17 @@
 */
 
 #include <stdio.h>
+#include <math.h>
 
-short point_belongs_segment(double, double, double, double, double, double);
+char point_belongs_segment(double, double, double, double, double, double);
 double max(double, double);
 double min(double, double);
+char doubles_are_equal(double, double);
+char point_belongs_math_segment(double, double, double);
 
 int main()
 {
-    short exit_code = 0;
+    char exit_code = 0;
 
     // Input
     double xq, yq, xr, yr, xp, yp;
@@ -22,7 +25,7 @@ int main()
     if (rc == 6)
     {
         // Calculations
-        short belongs = point_belongs_segment(xq, yq, xr, yr, xp, yp);
+        char belongs = point_belongs_segment(xq, yq, xr, yr, xp, yp);
 
         if (belongs != -1)
         {
@@ -56,39 +59,52 @@ double min(double a, double b)
     return min_a_b;
 }
 
-short point_belongs_segment(double xq, double yq, double xr, double yr, double xp, double yp)
+char doubles_are_equal(double a, double b)
 {
-    short belongs = 0;
+    double eps = 0.000001;
+    return (char) (fabs(a - b) < eps);
+}
 
-    short is_rq_vertical_line = xr == xq;
-    short is_pq_vertical_line = xp == xq;
+char point_belongs_math_segment(double a, double b, double x)
+{
+    char between_points = (char) (min(a, b) < x && x < max(a, b));
+    char on_point = (char) (doubles_are_equal(min(a, b) - x, 0) || doubles_are_equal(x - max(a, b), 0));
+    return (char) (between_points || on_point);
+}
 
-    short appropriate_line;
-    short appropriate_x_value;
-    short appropriate_y_value;
+char point_belongs_segment(double xq, double yq, double xr, double yr, double xp, double yp)
+{
+    char belongs = 0;
+
+    char is_rq_vertical_line = doubles_are_equal(xr, xq);
+    char is_pq_vertical_line = doubles_are_equal(xp, xq);
+
+    char appropriate_line;
+    char appropriate_x_value;
+    char appropriate_y_value;
 
     if (is_rq_vertical_line)
     {
-        if (yr == yq)
+        if (doubles_are_equal(yr, yq))
         {
-            if (xr == xp && yr == yp)
+            if (doubles_are_equal(xr, xp) && doubles_are_equal(yr, yp))
                 belongs = 1;
             else
                 belongs = -1;
         }
         else
         {
-            appropriate_line = xr == xp;
-            appropriate_y_value = min(yq, yr) <= yp && yp <= max(yq, yr);
-            belongs = appropriate_line && appropriate_y_value;
+            appropriate_line = doubles_are_equal(xr, xp);
+            appropriate_y_value = point_belongs_math_segment(yq, yr, yp);
+            belongs = (char) (appropriate_line && appropriate_y_value);
         }
     }
     else if (!is_pq_vertical_line)
     {
-        appropriate_line = ((yr - yq) / (xr - xq)) == ((yp - yq) / (xp - xq));
-        appropriate_x_value = min(xq, xr) <= xp && xp <= max(xq, xr);
-        appropriate_y_value = min(yq, yr) <= yp && yp <= max(yq, yr);
-        belongs = appropriate_line && appropriate_x_value && appropriate_y_value;
+        appropriate_line = doubles_are_equal(((yr - yq) / (xr - xq)), ((yp - yq) / (xp - xq)));
+        appropriate_x_value = point_belongs_math_segment(xq, xr, xp);
+        appropriate_y_value = point_belongs_math_segment(yq, yr, yp);
+        belongs = (char) (appropriate_line && appropriate_x_value && appropriate_y_value);
     }
 
     return belongs;

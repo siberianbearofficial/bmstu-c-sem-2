@@ -37,7 +37,7 @@ void print_prime_factorization(unsigned short n)
     unsigned short div = 2;
     while (n > 1)
     {
-        while (n % div == 0)
+        while (!(n % div))
         {
             printf("%u ", div);
             n /= div;
