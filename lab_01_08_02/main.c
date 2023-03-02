@@ -12,26 +12,29 @@ unsigned move(unsigned, char);
 
 int main()
 {
-    char exit_code;
+    char exit_code = 0;
 
     // Input
-    unsigned a;
+    unsigned long a;
     float n;
     printf("Input a & n: ");
 
-    if ((scanf("%u%f", &a, &n) == 2) && (floorf(n) == ceilf(n)) && a > 0)
+    if ((scanf("%lu%f", &a, &n) == 2) && (floorf(n) == ceilf(n)) && a >= 0 && a <= 4294967295)
     {
         // Calculations
         a = move(a, (char) ((int) n % 32));
 
         // Output
         binary_output(a);
-        exit_code = 0;
     }
     else
     {
-        printf("Error: bad input");
         exit_code = 1;
+    }
+
+    if (exit_code)
+    {
+        printf("Error: bad input");
     }
 
     return exit_code;
