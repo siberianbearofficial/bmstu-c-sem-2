@@ -15,11 +15,11 @@ int main()
     char exit_code;
 
     // Input
-    unsigned long a;
+    unsigned a;
     float n;
     printf("Input a & n: ");
 
-    if ((scanf("%lu%f", &a, &n) == 2) && (floorf(n) == ceilf(n)) && a < 4294967296)
+    if ((scanf("%u%f", &a, &n) == 2) && (floorf(n) == ceilf(n)) && a > 0)
     {
         // Calculations
         a = move(a, (char) ((int) n % 32));
@@ -46,9 +46,8 @@ unsigned move(unsigned a, char n)
 void binary_output(unsigned dec)
 {
     printf("Result: ");
-    char i = 32;
-    while (i--)
+    for (char i = 31; i >= 0; i--)
     {
-        printf("%d", (dec >> i) & 1);
+        printf("%u", (dec >> i) & 1);
     }
 }
