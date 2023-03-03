@@ -15,11 +15,11 @@ int main()
     char exit_code = 0;
 
     // Input
-    unsigned long a;
+    unsigned a;
     float n;
     printf("Input a & n: ");
 
-    if ((scanf("%lu%f", &a, &n) == 2) && (floorf(n) == ceilf(n)) && a >= 0 && a <= 4294967295)
+    if ((scanf("%u%f", &a, &n) == 2) && (floorf(n) == ceilf(n)))
     {
         // Calculations
         a = move(a, (char) ((int) n % 32));

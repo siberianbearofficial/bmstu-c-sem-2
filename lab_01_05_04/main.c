@@ -10,16 +10,16 @@ void print_prime_factorization(unsigned short);
 
 int main()
 {
-    char exit_code = 0;
+    char exit_code;
 
     // Input
     float n;
     printf("Input n: ");
-    char rc = scanf("%f", &n);
 
-    if (rc == 1 && n > 1 && ceilf(n) == floorf(n))
+    if ((scanf("%f", &n) == 1) && n > 1 && ceilf(n) == floorf(n))
     {
         print_prime_factorization((unsigned short) n);
+        exit_code = 0;
     }
     else if (n != 1)
     {
