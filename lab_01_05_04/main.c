@@ -10,7 +10,7 @@ void print_prime_factorization(unsigned short);
 
 int main()
 {
-    char exit_code;
+    char exit_code = 0;
 
     // Input
     float n;
@@ -20,8 +20,8 @@ int main()
     {
         if (n > 1 && (ceilf(n) == floorf(n)))
         {
+//            exit_code = 0;
             print_prime_factorization((unsigned short) n);
-            exit_code = 0;
         }
         else if (n != 1)
             exit_code = 1;
