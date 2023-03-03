@@ -16,12 +16,17 @@ int main()
     float n;
     printf("Input n: ");
 
-    if ((scanf("%f", &n) == 1) && n > 1 && ceilf(n) == floorf(n))
+    if (scanf("%f", &n))
     {
-        print_prime_factorization((unsigned short) n);
-        exit_code = 0;
+        if (n > 1 && (ceilf(n) == floorf(n)))
+        {
+            print_prime_factorization((unsigned short) n);
+            exit_code = 0;
+        }
+        else if (n != 1)
+            exit_code = 1;
     }
-    else if (n != 1)
+    else
     {
         exit_code = 1;
     }
