@@ -19,7 +19,7 @@ int main()
     float n;
     printf("Input a & n: ");
 
-    if ((scanf("%u%f", &a, &n) == 2) && (floorf(n) == ceilf(n)))
+    if ((scanf("%u%f", &a, &n) == 2) && (floorf(n) == ceilf(n)) && ((int) n >= 0))
     {
         // Calculations
         a = move(a, (char) ((int) n % 32));
