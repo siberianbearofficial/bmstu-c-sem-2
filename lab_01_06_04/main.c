@@ -5,14 +5,18 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+
+#define DEGENERATE 2
+#define EPS 0.000001
 
 char point_belongs_segment(double, double, double, double, double, double);
 char doubles_are_equal(double, double);
 
 int main()
 {
-    char exit_code = 0;
+    char exit_code = EXIT_SUCCESS;
 
     // Input
     double xq, yq, xr, yr, xp, yp;
@@ -24,17 +28,17 @@ int main()
         // Calculations
         char belongs = point_belongs_segment(xq, yq, xr, yr, xp, yp);
 
-        if (belongs != 2)
+        if (belongs != DEGENERATE)
         {
             // Output
             printf("Point belongs to segment: %d", belongs);
         }
         else
-            exit_code = 1;
+            exit_code = EXIT_FAILURE;
     }
     else
     {
-        exit_code = 1;
+        exit_code = EXIT_FAILURE;
     }
 
     return exit_code;
@@ -42,8 +46,7 @@ int main()
 
 char doubles_are_equal(double a, double b)
 {
-    double eps = 0.000001;
-    return (char) (fabs(a - b) < eps);
+    return (char) (fabs(a - b) < EPS);
 }
 
 double distance(double xa, double ya, double xb, double yb)
@@ -58,7 +61,7 @@ char point_belongs_segment(double xq, double yq, double xr, double yr, double xp
     double rp = distance(xr, yr, xp, yp);
     double qr = distance(xq, yq, xr, yr);
     if (doubles_are_equal(qr, 0))
-        belongs = 2;
+        belongs = DEGENERATE;
     else
         belongs = doubles_are_equal(qp + rp, qr);
     return belongs;

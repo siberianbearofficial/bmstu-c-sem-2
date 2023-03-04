@@ -4,7 +4,10 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+
+#define EPS 0.000001
 
 double f(double);
 double s(double, double);
@@ -14,7 +17,7 @@ char doubles_are_equal(double, double);
 
 int main()
 {
-    char exit_code = 0;
+    char exit_code = EXIT_SUCCESS;
 
     // Input
     double x, eps;
@@ -36,12 +39,12 @@ int main()
         }
         else
         {
-            exit_code = 1;
+            exit_code = EXIT_FAILURE;
         }
     }
     else
     {
-        exit_code = 1;
+        exit_code = EXIT_FAILURE;
     }
 
     return exit_code;
@@ -96,6 +99,5 @@ double get_rel_error(double val1, double val2)
 
 char doubles_are_equal(double a, double b)
 {
-    double eps = 0.000001;
-    return (char) (fabs(a - b) < eps);
+    return (char) (fabs(a - b) < EPS);
 }

@@ -4,13 +4,14 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 void print_prime_factorization(unsigned short);
 
 int main()
 {
-    char exit_code = 0;
+    char exit_code = EXIT_SUCCESS;
 
     // Input
     float n;
@@ -20,15 +21,14 @@ int main()
     {
         if (n > 1 && (ceilf(n) == floorf(n)))
         {
-//            exit_code = 0;
             print_prime_factorization((unsigned short) n);
         }
         else if (n != 1)
-            exit_code = 1;
+            exit_code = EXIT_FAILURE;
     }
     else
     {
-        exit_code = 1;
+        exit_code = EXIT_FAILURE;
     }
 
     return exit_code;

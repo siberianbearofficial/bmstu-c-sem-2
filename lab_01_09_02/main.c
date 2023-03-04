@@ -4,26 +4,28 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
-#include <stdbool.h>
+
+#define INPUT_ERROR (-1.0)
 
 float input_seq_and_calc_res();
 
 int main()
 {
-    bool exit_code = false;
+    char exit_code = EXIT_SUCCESS;
 
     // Input & Calculations
     float res = input_seq_and_calc_res();
 
-    if (res != -1.)
+    if (res != INPUT_ERROR)
     {
         // Output
         printf("Result: %.6f", res);
     }
     else
     {
-        exit_code = true;
+        exit_code = EXIT_FAILURE;
     }
 
     return exit_code;
@@ -35,7 +37,7 @@ float input_seq_and_calc_res()
     short rc;
     float res = 0;
     float x;
-    bool loop = true;
+    char loop = 1;
 
     printf("Input seq elements: ");
 
@@ -46,25 +48,25 @@ float input_seq_and_calc_res()
         {
             if (x < 0)
             {
-                loop = false;
+                loop = 0;
             }
             else
             {
                 n++;
-                res += sqrt(n + x);
+                res += sqrtf((float) n + x);
             }
         }
         else
         {
-            res = -1.;
-            loop = false;
+            res = INPUT_ERROR;
+            loop = 0;
         }
     }
 
     if (n == 0)
-        res = -1.;
+        res = INPUT_ERROR;
     else if (res != -1.)
-        res /= n;
+        res /= (float) n;
 
     return res;
 }

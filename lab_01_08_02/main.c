@@ -5,14 +5,17 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+
+#define LENGTH 32
 
 void binary_output(unsigned);
 unsigned move(unsigned, char);
 
 int main()
 {
-    char exit_code = 0;
+    char exit_code = EXIT_SUCCESS;
 
     // Input
     unsigned a;
@@ -22,14 +25,14 @@ int main()
     if ((scanf("%u%f", &a, &n) == 2) && (floorf(n) == ceilf(n)) && ((int) n >= 0))
     {
         // Calculations
-        a = move(a, (char) ((int) n % 32));
+        a = move(a, (char) ((int) n % LENGTH));
 
         // Output
         binary_output(a);
     }
     else
     {
-        exit_code = 1;
+        exit_code = EXIT_FAILURE;
     }
 
     if (exit_code)
@@ -42,14 +45,14 @@ int main()
 
 unsigned move(unsigned a, char n)
 {
-    a = (a << n) | (a >> (32 - n));
+    a = (a << n) | (a >> (LENGTH - n));
     return a;
 }
 
 void binary_output(unsigned dec)
 {
     printf("Result: ");
-    for (char i = 31; i >= 0; i--)
+    for (char i = LENGTH - 1; i >= 0; i--)
     {
         printf("%u", (dec >> i) & 1);
     }
