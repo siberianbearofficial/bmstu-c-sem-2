@@ -65,7 +65,7 @@ float input_seq_and_calc_res()
 
     if (n == 0)
         res = INPUT_ERROR;
-    else if (res != -1.)
+    else if (res != INPUT_ERROR)
         res /= (float) n;
 
     return res;

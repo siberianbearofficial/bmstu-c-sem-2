@@ -30,17 +30,10 @@ int main()
         double sx = s(x, eps);
         double fx = f(x);
         double rel_error = get_rel_error(fx, sx);
+        double abs_error = get_abs_error(fx, sx);
 
-        if (rel_error > 0 || doubles_are_equal(rel_error, 0))
-        {
-            double abs_error = get_abs_error(fx, sx);
-            // Output
-            printf("S(x): %.6f F(x): %.6f Absolute error: %.6f Relative error: %.6f", sx, fx, abs_error, rel_error);
-        }
-        else
-        {
-            exit_code = EXIT_FAILURE;
-        }
+        // Output
+        printf("S(x): %.6f F(x): %.6f Absolute error: %.6f Relative error: %.6f", sx, fx, abs_error, rel_error);
     }
     else
     {
@@ -85,16 +78,7 @@ double get_abs_error(double val1, double val2)
 
 double get_rel_error(double val1, double val2)
 {
-    double rel_error;
-
-    if (!doubles_are_equal(fabs(val1), 0))
-        rel_error = get_abs_error(val1, val2) / fabs(val1);
-    else
-    {
-        rel_error = -100 * (++val2);
-    }
-
-    return rel_error;
+    return get_abs_error(val1, val2) / fabs(val1);
 }
 
 char doubles_are_equal(double a, double b)
