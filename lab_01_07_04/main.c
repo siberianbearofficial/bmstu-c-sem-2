@@ -26,7 +26,7 @@ int main()
         // Calculations
         double sx = s(x, eps);
         double fx = f(x);
-        double rel_error = get_rel_error(fx, fx);
+        double rel_error = get_rel_error(fx, sx);
 
         if (rel_error > 0 || doubles_are_equal(rel_error, 0))
         {
