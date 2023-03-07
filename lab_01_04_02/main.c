@@ -6,7 +6,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_formatted(long long int);
+long long int get_hours(long long int);
+long long int get_minutes(long long int);
+long long int get_seconds(long long int);
 
 int main()
 {
@@ -23,19 +25,29 @@ int main()
     }
     else
     {
-        print_formatted(seconds);
+        // Calculations
+        long long int hours = get_hours(seconds);
+        long long int minutes = get_minutes(seconds);
+        seconds = get_seconds(seconds);
+
+        // Output
+        printf("Time: %lld : %lld : %lld", hours, minutes, seconds);
     }
 
     return exit_code;
 }
 
-void print_formatted(long long int seconds)
+long long int get_hours(long long int seconds)
 {
-    // Calculations
-    long long int hours = seconds / 60 / 60;
-    long long int minutes = seconds / 60 % 60;
-    seconds %= 60;
+    return seconds / 60 / 60;
+}
 
-    // Output
-    printf("Time: %lld : %lld : %lld", hours, minutes, seconds);
+long long int get_minutes(long long int seconds)
+{
+    return seconds / 60 % 60;
+}
+
+long long int get_seconds(long long int seconds)
+{
+    return seconds % 60;
 }

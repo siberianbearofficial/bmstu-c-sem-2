@@ -8,6 +8,7 @@
 #include <math.h>
 
 double distance(double, double, double, double);
+double perimeter(double, double, double, double, double, double);
 
 int main()
 {
@@ -24,10 +25,7 @@ int main()
     else
     {
         // Calculations
-        double a = distance(xc, yc, xb, yb);
-        double b = distance(xa, ya, xc, yc);
-        double c = distance(xa, ya, xb, yb);
-        double p = a + b + c;
+        double p = perimeter(xa, ya, xb, yb, xc, yc);
 
         // Output
         printf("Perimeter: %.6lf", p);
@@ -39,4 +37,12 @@ int main()
 double distance(double xa, double ya, double xb, double yb)
 {
     return sqrt(pow(xb - xa, 2) + pow(yb - ya, 2));
+}
+
+double perimeter(double xa, double ya, double xb, double yb, double xc, double yc)
+{
+    double a = distance(xc, yc, xb, yb);
+    double b = distance(xa, ya, xc, yc);
+    double c = distance(xa, ya, xb, yb);
+    return a + b + c;
 }
