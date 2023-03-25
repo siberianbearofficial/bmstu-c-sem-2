@@ -3,3 +3,7 @@
 *.o
 *.pch
 *.gch
+results.txt
+**/report/**
+task.pdf
+**/.idea/**

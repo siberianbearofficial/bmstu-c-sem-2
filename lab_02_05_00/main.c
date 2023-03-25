@@ -1,11 +1,5 @@
 /*
- При решении каждой задачи реализуйте программу, которая принимает у
- пользователя целочисленный статический массив и выполняет его обработку в
- соответствии с вариантом. Максимальное количество элементов, которое может
- ввести пользователь, равно десяти.
-
- Найти и вывести на экран среднее арифметическое отрицательных элементов
- массива.
+ Упорядочить массив по возрастанию с помощью сортировки вставками и вывести на экран.
 */
 
 #include <stdio.h>
@@ -18,9 +12,9 @@ char input_array_length(int *);
 
 char input_array(int *, int);
 
-char get_average(float *, const int *, int);
+char get_result(int *, int *, int *);
 
-char get_sum(int *, const int *, int);
+char max(int *, int);
 
 int main()
 {
@@ -32,10 +26,9 @@ int main()
         int arr[n];
         if (!input_array((int *) &arr, n))
         {
-            float average;
-            get_average(&average, (const int *) &arr, n);
-
-            printf("Average: %f", average);
+            int result;
+            get_result(&result, arr, arr + n - 1);
+            printf("Result: %d", result);
             exit_code = EXIT_SUCCESS;
         }
     }
@@ -83,20 +76,25 @@ char input_array(int *arr, int n)
     return exit_code;
 }
 
-char get_average(float *average, const int *arr, int n)
+char get_result(int *result, int *start, int *finish)
 {
-    int sum;
-    get_sum(&sum, arr, n);
-    *average = (float) sum / (float) n;
+    //    max(𝐴[0] + 𝐴[𝑛 − 1], 𝐴[1] + 𝐴[𝑛 − 2], 𝐴[2] + 𝐴[𝑛 − 3], . . . , 𝐴[(𝑛 − 1)/2] + 𝐴[𝑛/2])
+    //    1 16 3 17 5 2     n = 6
+    //    3 21 20           max = 21
 
+    *result = -1;
+    while (start <= finish)
+    {
+        max(result, *start + *finish);
+        start++;
+        finish--;
+    }
     return EXIT_SUCCESS;
 }
 
-char get_sum(int *sum, const int *arr, int n)
+char max(int *a, int b)
 {
-    for (int i = 0; i < n; i++)
-    {
-        *sum += arr[i];
-    }
+    if (*a < b)
+        *a = b;
     return EXIT_SUCCESS;
 }
