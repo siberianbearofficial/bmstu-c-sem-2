@@ -1,0 +1,1 @@
+Input array length: Input array elements: Result: 12
