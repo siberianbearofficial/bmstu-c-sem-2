@@ -44,21 +44,29 @@ char print_arr(const int *arr, int n)
 
 char input_array(int *arr, int *n)
 {
-    char exit_code = OVERFLOW;
+    char exit_code = EXIT_FAILURE;
     printf("Input array elements: ");
     *n = 0;
-    for (int i = 0; i < MAX_LENGTH; i++)
+    int element;
+    while (exit_code == EXIT_FAILURE)
     {
-        // May be to check whether element is a float or an int
-        if (scanf("%d", arr + i) != 1)
-            break;
+        if (scanf("%d", &element) == 1)
+        {
+            if (*n == MAX_LENGTH)
+            {
+                exit_code = OVERFLOW;
+            }
+            else
+            {
+                arr[*n] = element;
+                (*n)++;
+            }
+        }
         else
-            (*n)++;
+        {
+            exit_code = EXIT_SUCCESS;
+        }
     }
-    if (!*n)
-        exit_code = EXIT_FAILURE;
-    else if (*n < MAX_LENGTH)
-        exit_code = EXIT_SUCCESS;
     return exit_code;
 }
 

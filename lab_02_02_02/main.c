@@ -121,7 +121,8 @@ char get_filtered_arr(int *filtered_arr, int *m, const int *arr, int n)
         int is_element_nes;
         is_nes_element(element, &is_element_nes);
 
-        if (is_element_nes) {
+        if (is_element_nes)
+        {
             filtered_arr[*m] = element;
             (*m)++;
             exit_code = EXIT_SUCCESS;

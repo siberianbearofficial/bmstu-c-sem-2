@@ -116,7 +116,8 @@ char filter_arr(int *arr, int *n)
         int is_element_nes;
         is_nes_element(element, &is_element_nes);
 
-        if (!is_element_nes) {
+        if (!is_element_nes)
+        {
             arr[j] = element;
             j++;
             exit_code = EXIT_SUCCESS;
