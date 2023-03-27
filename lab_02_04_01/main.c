@@ -62,9 +62,13 @@ char input_array(int *arr, int *n)
                 (*n)++;
             }
         }
-        else
+        else if (*n > 0)
         {
             exit_code = EXIT_SUCCESS;
+        }
+        else
+        {
+            break;
         }
     }
     return exit_code;

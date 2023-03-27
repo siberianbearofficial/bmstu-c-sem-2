@@ -19,6 +19,8 @@ char get_filtered_arr(int *, int *, const int *, int);
 
 char print_arr(const int *, int);
 
+char is_nes_element(int);
+
 int main()
 {
     char exit_code = EXIT_FAILURE;
@@ -92,23 +94,18 @@ char input_array(int *arr, int n)
     return exit_code;
 }
 
-char is_nes_element(int element, int *is_element_nes)
+char is_nes_element(int element)
 {
-    if (element > -10 && element < 10)
+    element = abs(element);
+    if (element < 10)
     {
-        *is_element_nes = 1;
-    }
-    else
-    {
-        int first_digit = element;
-        while (first_digit > 10 || first_digit < -10)
-            first_digit /= 10;
-        int last_digit = element % 10;
-
-        *is_element_nes = abs(first_digit) == abs(last_digit);
+        return 1;
     }
 
-    return EXIT_SUCCESS;
+    char last_digit = (char) (element % 10);
+    while (element > 10)
+        element /= 10;
+    return (char) (last_digit == element);
 }
 
 char get_filtered_arr(int *filtered_arr, int *m, const int *arr, int n)
@@ -118,10 +115,8 @@ char get_filtered_arr(int *filtered_arr, int *m, const int *arr, int n)
     for (int i = 0; i < n; i++)
     {
         int element = arr[i];
-        int is_element_nes;
-        is_nes_element(element, &is_element_nes);
 
-        if (is_element_nes)
+        if (is_nes_element(element))
         {
             filtered_arr[*m] = element;
             (*m)++;

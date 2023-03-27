@@ -1,1 +1,1 @@
--3.0
+Input array length: Input array elements: Average: -3.000000
