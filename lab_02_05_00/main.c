@@ -1,5 +1,5 @@
 /*
- Упорядочить массив по возрастанию с помощью сортировки вставками и вывести на экран.
+ Вычислить и вывести на экран значение по формуле
 */
 
 #include <stdio.h>
@@ -23,7 +23,7 @@ int main()
     int n;
     if (!input_array_length(&n))
     {
-        int arr[n];
+        int arr[MAX_LENGTH];
         if (!input_array((int *) &arr, n))
         {
             int result;

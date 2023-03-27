@@ -20,7 +20,7 @@ char input_array(int *, int);
 
 char get_average(float *, const int *, int);
 
-char get_sum(int *, const int *, int);
+char get_sum_and_count(int *, int *, const int *, int);
 
 int main()
 {
@@ -29,14 +29,15 @@ int main()
     int n;
     if (!input_array_length(&n))
     {
-        int arr[n];
+        int arr[MAX_LENGTH];
         if (!input_array((int *) &arr, n))
         {
             float average;
-            get_average(&average, (const int *) &arr, n);
-
-            printf("Average: %f", average);
-            exit_code = EXIT_SUCCESS;
+            if (!get_average(&average, (const int *) &arr, n))
+            {
+                printf("Average: %f", average);
+                exit_code = EXIT_SUCCESS;
+            }
         }
     }
 
@@ -85,18 +86,38 @@ char input_array(int *arr, int n)
 
 char get_average(float *average, const int *arr, int n)
 {
-    int sum;
-    get_sum(&sum, arr, n);
-    *average = (float) sum / (float) n;
+    char exit_code = EXIT_SUCCESS;
 
-    return EXIT_SUCCESS;
+    int sum;
+    int count;
+    if (!get_sum_and_count(&sum, &count, arr, n))
+    {
+        *average = (float) sum / (float) count;
+    }
+    else
+    {
+        exit_code = EXIT_FAILURE;
+    }
+
+    return exit_code;
 }
 
-char get_sum(int *sum, const int *arr, int n)
+char get_sum_and_count(int *sum, int *count, const int *arr, int n)
 {
+    *count = 0;
+    *sum = 0;
     for (int i = 0; i < n; i++)
     {
-        *sum += arr[i];
+        if (arr[i] < 0)
+        {
+            *sum += arr[i];
+            (*count)++;
+        }
     }
-    return EXIT_SUCCESS;
+    char exit_code = EXIT_FAILURE;
+    if (*count > 0)
+        exit_code = EXIT_SUCCESS;
+    else
+        printf("Error: no negative elements in array");
+    return exit_code;
 }

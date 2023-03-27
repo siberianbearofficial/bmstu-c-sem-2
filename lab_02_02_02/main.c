@@ -26,11 +26,11 @@ int main()
     int n;
     if (!input_array_length(&n))
     {
-        int arr[n];
+        int arr[MAX_LENGTH];
         if (!input_array((int *) &arr, n))
         {
             int m;
-            int filtered_arr[n];
+            int filtered_arr[MAX_LENGTH];
             if (!get_filtered_arr((int *) &filtered_arr, &m, (const int *) &arr, n))
             {
                 print_arr((const int *) &filtered_arr, m);

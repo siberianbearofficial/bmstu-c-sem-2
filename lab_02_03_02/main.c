@@ -27,7 +27,7 @@ int main()
     int n;
     if (!input_array_length(&n))
     {
-        int arr[n];
+        int arr[MAX_LENGTH];
         if (!input_array((int *) &arr, n))
         {
             if (!filter_arr((int *) &arr, &n))
@@ -96,7 +96,7 @@ char is_nes_element(int element, int *is_element_nes)
     *is_element_nes = 0;
     for (int i = 0; i < (sqrt(element) + 1); i++)
     {
-        if (pow(i, 2) == element)
+        if (i * i == element)
         {
             *is_element_nes = 1;
             break;
