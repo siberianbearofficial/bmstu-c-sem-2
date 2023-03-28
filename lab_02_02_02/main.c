@@ -15,9 +15,9 @@ char input_array_length(int *);
 
 char input_array(int *, int);
 
-char get_filtered_arr(int *, int *, const int *, int);
+char get_filtered_arr(int *, char *, const int *, char);
 
-char print_arr(const int *, int);
+char print_arr(const int *, char);
 
 char is_nes_element(int);
 
@@ -31,9 +31,9 @@ int main()
         int arr[MAX_LENGTH];
         if (!input_array((int *) &arr, n))
         {
-            int m;
+            char m;
             int filtered_arr[MAX_LENGTH];
-            if (!get_filtered_arr((int *) &filtered_arr, &m, (const int *) &arr, n))
+            if (!get_filtered_arr((int *) &filtered_arr, &m, (const int *) &arr, (char) n))
             {
                 print_arr((const int *) &filtered_arr, m);
                 exit_code = EXIT_SUCCESS;
@@ -44,12 +44,12 @@ int main()
     return exit_code;
 }
 
-char print_arr(const int *arr, int n)
+char print_arr(const int *arr, char n)
 {
     printf("Array: ");
-    for (int i = 0; i < n; i++)
+    for (char i = 0; i < n; i++)
     {
-        printf("%d ", arr[i]);
+        printf("%d ", arr[(int) i]);
     }
     return EXIT_SUCCESS;
 }
@@ -108,17 +108,16 @@ char is_nes_element(int element)
     return (char) (last_digit == element);
 }
 
-char get_filtered_arr(int *filtered_arr, int *m, const int *arr, int n)
+char get_filtered_arr(int *filtered_arr, char *m, const int *arr, char n)
 {
     char exit_code = EXIT_FAILURE;
 
-    for (int i = 0; i < n; i++)
+    *m = 0;
+    for (char i = 0; i < n; i++)
     {
-        int element = arr[i];
-
-        if (is_nes_element(element))
+        if (is_nes_element(arr[(int) i]))
         {
-            filtered_arr[*m] = element;
+            filtered_arr[(int) *m] = arr[(int) i];
             (*m)++;
             exit_code = EXIT_SUCCESS;
         }
