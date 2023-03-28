@@ -41,7 +41,6 @@ char input_array_length(int *n)
     char exit_code = EXIT_SUCCESS;
     printf("Input array length: ");
 
-    // May be to check whether n is a float or an int
     if (scanf("%d", n) == 1)
     {
         if (*n < MIN_LENGTH || *n > MAX_LENGTH)
@@ -63,14 +62,12 @@ char input_array(int *arr, int n)
 {
     char exit_code = EXIT_SUCCESS;
     printf("Input array elements: ");
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n && !exit_code; i++)
     {
-        // May be to check whether element is a float or an int
         if (scanf("%d", arr + i) != 1)
         {
             printf("Error with array element");
             exit_code = EXIT_FAILURE;
-            break;
         }
     }
     return exit_code;
@@ -78,10 +75,6 @@ char input_array(int *arr, int n)
 
 char get_result(int *result, int *start, int *finish)
 {
-    //    max(𝐴[0] + 𝐴[𝑛 − 1], 𝐴[1] + 𝐴[𝑛 − 2], 𝐴[2] + 𝐴[𝑛 − 3], . . . , 𝐴[(𝑛 − 1)/2] + 𝐴[𝑛/2])
-    //    1 16 3 17 5 2     n = 6
-    //    3 21 20           max = 21
-
     *result = -1;
     while (start <= finish)
     {

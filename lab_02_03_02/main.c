@@ -56,7 +56,6 @@ char input_array_length(int *n)
     char exit_code = EXIT_SUCCESS;
     printf("Input array length: ");
 
-    // May be to check whether n is a float or an int
     if (scanf("%d", n) == 1)
     {
         if (*n < MIN_LENGTH || *n > MAX_LENGTH)
@@ -78,14 +77,12 @@ char input_array(int *arr, int n)
 {
     char exit_code = EXIT_SUCCESS;
     printf("Input array elements: ");
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n && !exit_code; i++)
     {
-        // May be to check whether element is a float or an int
         if (scanf("%d", arr + i) != 1)
         {
             printf("Error with array element");
             exit_code = EXIT_FAILURE;
-            break;
         }
     }
     return exit_code;
@@ -94,12 +91,11 @@ char input_array(int *arr, int n)
 char is_nes_element(int element, int *is_element_nes)
 {
     *is_element_nes = 0;
-    for (int i = 0; i < (sqrt(element) + 1); i++)
+    for (int i = 0; i < (sqrt(element) + 1) && !*is_element_nes; i++)
     {
         if (i * i == element)
         {
             *is_element_nes = 1;
-            break;
         }
     }
     return EXIT_SUCCESS;
@@ -108,14 +104,12 @@ char is_nes_element(int element, int *is_element_nes)
 char filter_arr(int *arr, int *n)
 {
     char exit_code = EXIT_FAILURE;
-
     int j = 0;
     for (int i = 0; i < *n; i++)
     {
         int element = arr[i];
         int is_element_nes;
         is_nes_element(element, &is_element_nes);
-
         if (!is_element_nes)
         {
             arr[j] = element;
@@ -124,6 +118,5 @@ char filter_arr(int *arr, int *n)
         }
     }
     *n = j;
-
     return exit_code;
 }

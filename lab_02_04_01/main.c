@@ -17,16 +17,13 @@ char print_arr(const int *, int);
 
 int main()
 {
-    char exit_code = EXIT_FAILURE;
-
     int n;
     int arr[MAX_LENGTH];
-    char input_array_exit_code = input_array((int *) &arr, &n);
-    if (!input_array_exit_code || input_array_exit_code == OVERFLOW)
+    char exit_code = input_array((int *) &arr, &n);
+    if (!exit_code || exit_code == OVERFLOW)
     {
         sort_arr((int *) &arr, n);
         print_arr((const int *) &arr, n);
-        exit_code = input_array_exit_code;
     }
 
     return exit_code;
@@ -45,10 +42,11 @@ char print_arr(const int *arr, int n)
 char input_array(int *arr, int *n)
 {
     char exit_code = EXIT_FAILURE;
+    char exit = EXIT_SUCCESS;
     printf("Input array elements: ");
     *n = 0;
     int element;
-    while (exit_code == EXIT_FAILURE)
+    while (exit_code == EXIT_FAILURE && !exit)
     {
         if (scanf("%d", &element) == 1)
         {
@@ -68,7 +66,7 @@ char input_array(int *arr, int *n)
         }
         else
         {
-            break;
+            exit = EXIT_FAILURE;
         }
     }
     return exit_code;
@@ -87,6 +85,5 @@ char sort_arr(int *arr, int n)
         }
         arr[j + 1] = key;
     }
-
     return EXIT_SUCCESS;
 }

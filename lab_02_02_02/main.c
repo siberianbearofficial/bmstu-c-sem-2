@@ -1,8 +1,6 @@
 /*
  Сформировать и вывести на экран новый массив, в который скопировать элементы исходного массива,
  которые начинаются и заканчиваются на одну и ту же цифру.
-
- Число начинается и заканчивается на одну и ту же цифру
 */
 
 #include <stdio.h>
@@ -59,7 +57,6 @@ char input_array_length(int *n)
     char exit_code = EXIT_SUCCESS;
     printf("Input array length: ");
 
-    // May be to check whether n is a float or an int
     if (scanf("%d", n) == 1)
     {
         if (*n < MIN_LENGTH || *n > MAX_LENGTH)
@@ -81,14 +78,12 @@ char input_array(int *arr, int n)
 {
     char exit_code = EXIT_SUCCESS;
     printf("Input array elements: ");
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n && !exit_code; i++)
     {
-        // May be to check whether element is a float or an int
         if (scanf("%d", arr + i) != 1)
         {
             printf("Error with array element");
             exit_code = EXIT_FAILURE;
-            break;
         }
     }
     return exit_code;
@@ -96,22 +91,21 @@ char input_array(int *arr, int n)
 
 char is_nes_element(int element)
 {
+    char last_digit = 1;
     element = abs(element);
-    if (element < 10)
+    if (element >= 10)
     {
-        return 1;
+        last_digit = (char) (element % 10);
+        while (element > 10)
+            element /= 10;
+        last_digit = (char) (last_digit == element);
     }
-
-    char last_digit = (char) (element % 10);
-    while (element > 10)
-        element /= 10;
-    return (char) (last_digit == element);
+    return last_digit;
 }
 
 char get_filtered_arr(int *filtered_arr, char *m, const int *arr, char n)
 {
     char exit_code = EXIT_FAILURE;
-
     *m = 0;
     for (char i = 0; i < n; i++)
     {
@@ -122,6 +116,5 @@ char get_filtered_arr(int *filtered_arr, char *m, const int *arr, char n)
             exit_code = EXIT_SUCCESS;
         }
     }
-
     return exit_code;
 }
