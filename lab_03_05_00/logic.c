@@ -2,7 +2,7 @@
 
 char reverse(int *, int);
 
-char prime (int);
+char prime(int);
 
 char reverse(int *arr, int n)
 {

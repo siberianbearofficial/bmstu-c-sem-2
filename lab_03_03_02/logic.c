@@ -33,7 +33,8 @@ char sort_matrix(matrix mtx, int n, int m)
         int key = multiply_elements(mtx[i], m);
 
         int j = i - 1;
-        while (multiply_elements(mtx[j], m) > key && j >= 0)
+
+        while ((j >= 0) && (multiply_elements(mtx[j], m) > key))
         {
             swap_lines(mtx, j + 1, j, m);
             j--;

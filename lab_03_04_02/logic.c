@@ -8,12 +8,9 @@ char get_result(int *result, matrix mtx, int n)
     {
         for (int j = n - i; j < n; j++)
         {
-            if (mtx[i][j] % 10 == 5)
+            if ((abs(mtx[i][j]) % 10 == 5) && (exit_code || (mtx[i][j] > *result)))
             {
-                if (exit_code || mtx[i][j] > *result)
-                {
-                    *result = mtx[i][j];
-                }
+                *result = mtx[i][j];
                 exit_code = EXIT_SUCCESS;
             }
         }
