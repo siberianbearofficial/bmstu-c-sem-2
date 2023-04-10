@@ -1,3 +1,4 @@
+**/.idea/**
 *.exe
 *.out
 *.o
@@ -9,5 +10,4 @@
 main
 results.txt
 task.pdf
-**/.idea/**
 **/report/**
