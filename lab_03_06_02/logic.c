@@ -1,6 +1,6 @@
 #include "logic.h"
 
-char get_result(matrix mtx, int n, int m)
+char get_bull_matrix(matrix mtx, int n, int m)
 {
     int k = 1;
     for (int j = m - 1; j >= 0; j--)

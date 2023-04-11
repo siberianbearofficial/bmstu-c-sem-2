@@ -3,8 +3,8 @@
 
 #include <stdlib.h>
 #include <math.h>
-#include "constants.h"
+#include "types.h"
 
-char get_result(matrix, int, int);
+char reverse_prime_numbers(matrix, int, int);
 
 #endif //LAB_03_02_02_LOGIC_H

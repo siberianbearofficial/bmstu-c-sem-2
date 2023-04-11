@@ -13,7 +13,7 @@ int main()
         if (!input_matrix(mtx, n))
         {
             int result;
-            if (!get_result(&result, mtx, n))
+            if (!get_max_ends_5_under_d(&result, mtx, n))
             {
                 printf("Result: %d", result);
                 exit_code = EXIT_SUCCESS;

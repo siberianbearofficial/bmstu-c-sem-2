@@ -4,6 +4,10 @@ char reverse(int *, int);
 
 char prime(int);
 
+char get_p_nums_and_inds(matrix, int, int, int *, int *, int *, int *);
+
+char set_p_nums_by_inds(matrix, int, int, int, const int *, const int *, const int *);
+
 char reverse(int *arr, int n)
 {
     for (int i = 0; i < n / 2; i++)
@@ -36,40 +40,49 @@ char prime(int x)
     return is_prime;
 }
 
-char get_result(matrix mtx, int n, int m)
+char reverse_prime_numbers(matrix mtx, int n, int m)
 {
-    char exit_code = EXIT_SUCCESS;
+    char exit_code = EXIT_FAILURE;
 
-    int prime_numbers[N * M];
-    int i_indexes[N * M];
-    int j_indexes[N * M];
-
+    int p_nums[N * M];
+    int i_inds[N * M];
+    int j_inds[N * M];
     int k = 0;
+    
+    get_p_nums_and_inds(mtx, n, m, &k, (int *) p_nums, (int *) i_inds, (int *) j_inds);
+
+    if (k > 0)
+    {
+        reverse((int *) &p_nums, k);
+        set_p_nums_by_inds(mtx, n, m, k, (const int *) p_nums, (const int *) i_inds, (const int *) j_inds);
+        exit_code = EXIT_SUCCESS;
+    }
+    return exit_code;
+}
+
+char set_p_nums_by_inds(matrix mtx, int n, int m, int k, const int *p_nums, const int *i_inds, const int *j_inds)
+{
+    for (int i = 0; i < k; i++)
+    {
+        mtx[i_inds[i]][j_inds[i]] = p_nums[i];
+    }
+    return EXIT_SUCCESS;
+}
+
+char get_p_nums_and_inds(matrix mtx, int n, int m, int *k, int *p_nums, int *i_inds, int *j_inds)
+{
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
             if (prime(mtx[i][j]))
             {
-                prime_numbers[k] = mtx[i][j];
-                i_indexes[k] = i;
-                j_indexes[k] = j;
-                k++;
+                p_nums[*k] = mtx[i][j];
+                i_inds[*k] = i;
+                j_inds[*k] = j;
+                (*k)++;
             }
         }
     }
-
-    if (k > 0)
-    {
-        reverse((int *) &prime_numbers, k);
-        for (int i = 0; i < k; i++)
-        {
-            mtx[i_indexes[i]][j_indexes[i]] = prime_numbers[i];
-        }
-    }
-    else
-    {
-        exit_code = EXIT_FAILURE;
-    }
-    return exit_code;
+    return EXIT_SUCCESS;
 }

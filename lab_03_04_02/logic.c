@@ -1,6 +1,6 @@
 #include "logic.h"
 
-char get_result(int *result, matrix mtx, int n)
+char get_max_ends_5_under_d(int *result, matrix mtx, int n)
 {
     char exit_code = EXIT_FAILURE;
     *result = 0;

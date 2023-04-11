@@ -2,8 +2,8 @@
 #define LAB_03_02_02_LOGIC_H
 
 #include <stdlib.h>
-#include "constants.h"
+#include "types.h"
 
-char get_result(matrix, int, int);
+char get_bull_matrix(matrix, int, int);
 
 #endif //LAB_03_02_02_LOGIC_H

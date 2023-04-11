@@ -15,7 +15,7 @@ int main()
         matrix mtx;
         if (!input_matrix(mtx, n, m))
         {
-            if (!get_result(mtx, n, m))
+            if (!reverse_prime_numbers(mtx, n, m))
             {
                 print_matrix(mtx, n, m);
                 exit_code = EXIT_SUCCESS;

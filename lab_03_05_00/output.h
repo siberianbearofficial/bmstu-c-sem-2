@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "constants.h"
+#include "types.h"
 
 char print_matrix(matrix, int, int);
 

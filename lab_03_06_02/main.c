@@ -12,7 +12,7 @@ int main()
     if (!input_matrix_size(&n, &m))
     {
         matrix mtx;
-        get_result(mtx, n, m);
+        get_bull_matrix(mtx, n, m);
         print_matrix(mtx, n, m);
         exit_code = EXIT_SUCCESS;
     }

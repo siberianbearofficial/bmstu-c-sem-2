@@ -2,7 +2,7 @@
 #define LAB_03_01_02_LOGIC_H
 
 #include <stdlib.h>
-#include "constants.h"
+#include "types.h"
 
 char get_arr(int *, matrix, int, int);
 
