@@ -4,6 +4,10 @@
 *.o
 *.pch
 *.gch
+*.gcda
+*.gcno
+*.gcov
+main
 results.txt
-**/report/**
 task.pdf
+**/report/**

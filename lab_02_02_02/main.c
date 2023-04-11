@@ -13,11 +13,11 @@ char input_array_length(int *);
 
 char input_array(int *, int);
 
-char get_filtered_arr(int *, char *, const int *, char);
+char get_filtered_arr(int *, int *, const int *, int);
 
-char print_arr(const int *, char);
+char print_arr(const int *, int);
 
-char is_nes_element(int);
+int is_nes_element(int);
 
 int main()
 {
@@ -29,9 +29,9 @@ int main()
         int arr[MAX_LENGTH];
         if (!input_array((int *) &arr, n))
         {
-            char m;
+            int m;
             int filtered_arr[MAX_LENGTH];
-            if (!get_filtered_arr((int *) &filtered_arr, &m, (const int *) &arr, (char) n))
+            if (!get_filtered_arr((int *) &filtered_arr, &m, (const int *) &arr, n))
             {
                 print_arr((const int *) &filtered_arr, m);
                 exit_code = EXIT_SUCCESS;
@@ -42,12 +42,12 @@ int main()
     return exit_code;
 }
 
-char print_arr(const int *arr, char n)
+char print_arr(const int *arr, int n)
 {
     printf("Array: ");
-    for (char i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("%d ", arr[(int) i]);
+        printf("%d ", arr[i]);
     }
     return EXIT_SUCCESS;
 }
@@ -89,29 +89,29 @@ char input_array(int *arr, int n)
     return exit_code;
 }
 
-char is_nes_element(int element)
+int is_nes_element(int element)
 {
-    char last_digit = 1;
+    int last_digit = 1;
     element = abs(element);
     if (element >= 10)
     {
-        last_digit = (char) (element % 10);
+        last_digit = (element % 10);
         while (element > 10)
             element /= 10;
-        last_digit = (char) (last_digit == element);
+        last_digit = (last_digit == element);
     }
     return last_digit;
 }
 
-char get_filtered_arr(int *filtered_arr, char *m, const int *arr, char n)
+char get_filtered_arr(int *filtered_arr, int *m, const int *arr, int n)
 {
     char exit_code = EXIT_FAILURE;
     *m = 0;
-    for (char i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        if (is_nes_element(arr[(int) i]))
+        if (is_nes_element(arr[i]))
         {
-            filtered_arr[(int) *m] = arr[(int) i];
+            filtered_arr[*m] = arr[i];
             (*m)++;
             exit_code = EXIT_SUCCESS;
         }

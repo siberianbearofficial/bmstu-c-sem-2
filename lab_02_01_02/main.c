@@ -114,7 +114,5 @@ char get_sum_and_count(int *sum, int *count, const int *arr, int n)
     char exit_code = EXIT_FAILURE;
     if (*count > 0)
         exit_code = EXIT_SUCCESS;
-    else
-        printf("Error: no negative elements in array");
     return exit_code;
 }
