@@ -1,0 +1,7 @@
+this yes
+word no
+is yes
+in yes
+the yes
+first no
+string no

@@ -1,0 +1,6 @@
+my no
+test no
+String no
+is yes
+ttt no
+t yes
