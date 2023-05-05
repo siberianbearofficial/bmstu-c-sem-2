@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "constants.h"
 #include "logic.h"
+#include "types.h"
 
 #endif //LAB_04_04_02_MAIN_H

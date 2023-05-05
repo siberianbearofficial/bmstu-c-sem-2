@@ -15,22 +15,22 @@
 
 int main()
 {
+    char exit_code = EXIT_FAILURE;
     char str[S_LEN];
 
-    // Str input
-    fgets(str, S_LEN, stdin);
-
-    // Str words
-    int words_count;
-    string_array words;
-    split_string(str, words, &words_count);
-
-    // Result
-    char result_string[S_LEN];
-    remove_last_modify_words((char *) &result_string, words, words_count);
-    printf("Result: %s\n", result_string);
-
-    // ahbshdfbaa fafhdfdghbajfuh sdjhsjhssjhsjs oiereireioeorei jifduhdifuhj  TODO: move this test to generator
-
-    return EXIT_SUCCESS;
+    if (fgets(str, S_LEN, stdin))
+    {
+        int words_count;
+        string_array words;
+        if (!split_string(str, words, &words_count))
+        {
+            char result_string[S_LEN];
+            if (!remove_last_modify_words((char *) &result_string, words, words_count))
+            {
+                printf("Result: %s\n", result_string);
+                exit_code = EXIT_SUCCESS;
+            }
+        }
+    }
+    return exit_code;
 }

@@ -1,5 +1,41 @@
 #include "logic.h"
 
+char get_year(const char *, int *);
+
+char get_day(const char *, int *);
+
+char append_word(const char *, string_array, int *);
+
+char append_word(const char *word, string_array array, int *n)
+{
+    char exit_code = EXIT_SUCCESS;
+    int i;
+    for (i = 0; word[i] && i < W_LEN; i++)
+        array[*n][i] = word[i];
+    if (i < (W_LEN - 1))
+    {
+        array[*n][i] = '\0';
+        (*n)++;
+        exit_code |= word[i];
+    }
+    return exit_code;
+}
+
+char split_string(char *str, string_array words, int *words_count)
+{
+    *words_count = 0;
+    const char *delim = " \n";
+    if (strrchr(str, '\n'))
+    {
+        char *token = strtok(str, delim);
+        do
+            if (!append_word(token, words, words_count))
+                token = strtok(NULL, delim);
+        while (token);
+    }
+    return (char) (*words_count <= 0);
+}
+
 int days_in_month(int, int);
 
 int is_leap_year(int);
@@ -52,4 +88,48 @@ int get_month(const char *month_str)
     else if (!strcmp(month_str, "december"))
         month = 12;
     return month;
+}
+
+char get_year(const char *str_year, int *year)
+{
+    char exit_code = EXIT_SUCCESS;
+    for (int i = 0; str_year[i] && !exit_code; i++)
+        exit_code = !isdigit(str_year[i]);
+    if (!exit_code)
+        *year = atoi(str_year);
+    return exit_code;
+}
+
+char get_day(const char *str_day, int *day)
+{
+    char exit_code = EXIT_SUCCESS;
+    for (int i = 0; str_day[i] && !exit_code; i++)
+        exit_code = !isdigit(str_day[i]);
+    if (!exit_code)
+        *day = atoi(str_day);
+    return exit_code;
+}
+
+char valid_data(string_array data, int data_len)
+{
+    char exit_code = EXIT_FAILURE;
+    if (data_len == 3)
+    {
+        int year;
+        if (!get_year(data[2], &year))
+        {
+            if (valid_year(year))
+            {
+                int month;
+                if ((month = get_month(data[1])))
+                {
+                    int day;
+                    if (!get_day(data[0], &day))
+                        if (valid_day(day, month, year))
+                            exit_code = EXIT_SUCCESS;
+                }
+            }
+        }
+    }
+    return exit_code;
 }

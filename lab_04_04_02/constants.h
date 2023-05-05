@@ -1,6 +1,0 @@
-#ifndef LAB_04_04_02_CONSTANTS_H
-#define LAB_04_04_02_CONSTANTS_H
-
-#define W_LEN 16
-
-#endif //LAB_04_04_02_CONSTANTS_H

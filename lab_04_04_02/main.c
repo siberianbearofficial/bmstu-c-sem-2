@@ -16,25 +16,19 @@
 int main(void)
 {
     char exit_code = EXIT_FAILURE;
-    int day;
-    char month_str[W_LEN];
-    int year;
-    if (scanf("%d %s %d", &day, (char *) &month_str, &year) == 3)
+    char str[S_LEN];
+    if (fgets(str, S_LEN, stdin))
     {
-        if (valid_year(year))
+        string_array data;
+        int data_len;
+        if (!split_string(str, data, &data_len))
         {
-            int month;
-            if ((month = get_month(month_str)))
-            {
-                if (valid_day(day, month, year))
-                {
-                    printf("YES");
-                    exit_code = EXIT_SUCCESS;
-                }
-            }
+            if (!valid_data(data, data_len))
+                printf("YES");
+            else
+                printf("NO");
+            exit_code = EXIT_SUCCESS;
         }
     }
-    if (exit_code)
-        printf("NO");
     return exit_code;
 }

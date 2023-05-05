@@ -21,38 +21,33 @@ int main(void)
     int count = 0;
     for (int i = 0; i < 100; i++)
     {
-        char reject[] = "                              ";
-        for (int j = 0; j < 29; j++)
-            reject[j] = (char) (i + j);
-        char s[] = "01234Abcsfhywgjewkyqegwhkfjyitghekwf2873482732t383yewfduhvjeafdshhkfj5667898765678";
+        char str[] = "01234Abcsfhywgjeegwhekwf2dshhkfj5667898765678";
+        for (int j = 0; j < 45; j++)
+            str[j] = (char) (i + j);
+        char s[] = "01234Abcsfhywgjeegwhekwf2dshhkfj5667898765678";
 
-        char *etalon1 = strpbrk(s, reject);
-        char *my_res1 = my_strpbrk(s, reject);
-//        printf("%d %d\n", etalon, my_res);
+        char *etalon1 = strpbrk(s, str);
+        char *my_res1 = my_strpbrk(s, str);
         if (etalon1 != my_res1)
             count++;
 
-        size_t etalon2 = strspn(s, reject);
-        size_t my_res2 = my_strspn(s, reject);
-//        printf("%d %d\n", etalon, my_res);
+        size_t etalon2 = strspn(s, str);
+        size_t my_res2 = my_strspn(s, str);
         if (etalon2 != my_res2)
             count++;
 
-        size_t etalon3 = strcspn(s, reject);
-        size_t my_res3 = my_strcspn(s, reject);
-//        printf("%d %d\n", etalon, my_res);
+        size_t etalon3 = strcspn(s, str);
+        size_t my_res3 = my_strcspn(s, str);
         if (etalon3 != my_res3)
             count++;
 
         char *etalon4 = strchr(s, i);
         char *my_res4 = my_strchr(s, i);
-//        printf("%d %d\n", etalon, my_res);
         if (etalon4 != my_res4)
             count++;
 
         char *etalon5 = strrchr(s, i);
         char *my_res5 = my_strrchr(s, i);
-//        printf("%d %d\n", etalon, my_res);
         if (etalon5 != my_res5)
             count++;
     }

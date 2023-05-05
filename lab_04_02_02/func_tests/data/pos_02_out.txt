@@ -1,2 +1,2 @@
-test1 yes
+Result: test1 yes
 test2 no
