@@ -17,7 +17,7 @@ int main(void)
 {
     char exit_code = EXIT_FAILURE;
     char str[S_LEN];
-    if (fgets(str, S_LEN, stdin))
+    if (!input_line(str))
     {
         string_array data;
         int data_len;

@@ -1,0 +1,6 @@
+#ifndef LAB_04_04_02_CONSTANTS_H
+#define LAB_04_04_02_CONSTANTS_H
+
+#define S_LEN 256
+
+#endif //LAB_04_04_02_CONSTANTS_H

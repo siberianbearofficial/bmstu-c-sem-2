@@ -3,7 +3,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "constants.h"
+#include "string_array.h"
 #include "logic.h"
-#include "types.h"
+#include "input.h"
 
 #endif //LAB_04_03_00_MAIN_H

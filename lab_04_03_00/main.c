@@ -13,12 +13,12 @@
 
 #include "main.h"
 
-int main()
+int main(void)
 {
     char exit_code = EXIT_FAILURE;
     char str[S_LEN];
 
-    if (fgets(str, S_LEN, stdin))
+    if (!input_line(str))
     {
         int words_count;
         string_array words;
@@ -32,5 +32,6 @@ int main()
             }
         }
     }
+
     return exit_code;
 }

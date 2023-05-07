@@ -6,14 +6,14 @@
 
 #include "main.h"
 
-int main()
+int main(void)
 {
     char exit_code = EXIT_FAILURE;
     char str1[S_LEN], str2[S_LEN];
 
-    if (fgets(str1, S_LEN, stdin) && full_line(str1))
+    if (!input_line(str1))
     {
-        if (fgets(str2, S_LEN, stdin) && full_line(str2))
+        if (!input_line(str2))
         {
             int words1_count;
             string_array words1;
@@ -23,6 +23,7 @@ int main()
                 string_array words2;
                 if (!split_string(str2, words2, &words2_count))
                 {
+                    remove_duplicates(words1, &words1_count);
                     printf("Result: ");
                     for (int i = 0; i < words1_count; i++)
                     {
