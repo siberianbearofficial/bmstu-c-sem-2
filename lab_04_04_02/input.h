@@ -8,6 +8,4 @@
 
 int input_line(char *);
 
-int full_line(const char *);
-
 #endif //LAB_04_04_02_INPUT_H

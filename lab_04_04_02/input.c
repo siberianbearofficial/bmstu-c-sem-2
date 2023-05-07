@@ -1,5 +1,7 @@
 #include "input.h"
 
+int full_line(const char *);
+
 int full_line(const char *str)
 {
     char exit_code = EXIT_FAILURE;
@@ -13,5 +15,5 @@ int full_line(const char *str)
 
 int input_line(char *str)
 {
-    return !fgets(str, S_LEN, stdin);
+    return !fgets(str, S_LEN, stdin) || full_line(str);
 }
