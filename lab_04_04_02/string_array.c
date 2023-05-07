@@ -26,7 +26,7 @@ int split_string(char *str, string_array words, int *words_count)
 {
     *words_count = 0;
     const char *delim = " \t\n";
-    if (strrchr(str, '\n'))
+    if (strrchr(str, '\n') && str[0] != '\n')
     {
         char *token = strtok(str, delim);
         do
