@@ -31,7 +31,7 @@ int valid_day(int day, int month, int year)
 
 int valid_year(int year)
 {
-    return year > 0;
+    return year > 999 && year < 10000;
 }
 
 int string_to_lower(char *str)
