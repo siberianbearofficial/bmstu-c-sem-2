@@ -2,6 +2,8 @@
 
 int string_to_int(const char *, int *);
 
+int string_to_lower(char *);
+
 int days_in_month(int, int);
 
 int is_leap_year(int);
@@ -10,7 +12,7 @@ int valid_day(int, int, int);
 
 int valid_year(int);
 
-int get_month(const char *);
+int get_month(char *);
 
 int is_leap_year(int year)
 {
@@ -32,8 +34,16 @@ int valid_year(int year)
     return year > 0;
 }
 
-int get_month(const char *month_str)
+int string_to_lower(char *str)
 {
+    for (int i = 0; str[i]; i++)
+        str[i] = tolower(str[i]);
+    return EXIT_SUCCESS;
+}
+
+int get_month(char *month_str)
+{
+    string_to_lower(month_str);
     int month = 0;
     if (!strcmp(month_str, "january"))
         month = 1;
