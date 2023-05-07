@@ -19,14 +19,22 @@ int main(void)
     char str[S_LEN];
     if (!input_line(str))
     {
-        string_array data;
-        int data_len;
-        if (!split_string(str, data, &data_len))
+        if (!full_line(str))
         {
-            if (!valid_data(data, data_len))
-                printf("YES");
-            else
-                printf("NO");
+            string_array data;
+            int data_len;
+            if (!split_string(str, data, &data_len))
+            {
+                if (!valid_data(data, data_len))
+                {
+                    printf("YES");
+                    exit_code = EXIT_SUCCESS;
+                }
+            }
+        }
+        if (exit_code)
+        {
+            printf("NO");
             exit_code = EXIT_SUCCESS;
         }
     }
