@@ -31,7 +31,7 @@ int valid_day(int day, int month, int year)
 
 int valid_year(int year)
 {
-    return year > 999 && year < 10000;
+    return year > 0 && year < 10000;
 }
 
 int string_to_lower(char *str)
@@ -74,7 +74,7 @@ int get_month(char *month_str)
 
 int string_to_int(const char *str, int *i_str, int max_len)
 {
-    char exit_code = strlen(str) > max_len;
+    char exit_code = EXIT_SUCCESS;  // strlen(str) > max_len;
     for (int i = 0; str[i] && !exit_code; i++)
         exit_code = !isdigit(str[i]);
     if (!exit_code)

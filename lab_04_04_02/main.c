@@ -27,8 +27,10 @@ int main(void)
                 printf("YES");
             else
                 printf("NO");
-            exit_code = EXIT_SUCCESS;
         }
+        else
+            printf("NO");
+        exit_code = EXIT_SUCCESS;
     }
     return exit_code;
 }

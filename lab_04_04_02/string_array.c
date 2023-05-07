@@ -25,7 +25,7 @@ int append_word(const char *word, string_array array, int *n)
 int split_string(char *str, string_array words, int *words_count)
 {
     *words_count = 0;
-    const char *delim = ",;:-.!? \t\n";
+    const char *delim = " \t\n";
     if (strrchr(str, '\n'))
     {
         char *token = strtok(str, delim);
