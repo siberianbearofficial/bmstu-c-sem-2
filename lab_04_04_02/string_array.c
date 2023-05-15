@@ -29,14 +29,17 @@ int split_string(char *str, string_array words, int *words_count)
     if (strrchr(str, '\n') && str[0] != '\n')
     {
         char *token = strtok(str, delim);
-        do
+        if (token)
         {
-            if (!append_word(token, words, words_count))
-                token = strtok(NULL, delim);
-            else
-                token = NULL;
+            do
+            {
+                if (!append_word(token, words, words_count))
+                    token = strtok(NULL, delim);
+                else
+                    token = NULL;
+            }
+            while (token);
         }
-        while (token);
     }
     return (char) (*words_count <= 0);
 }

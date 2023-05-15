@@ -1,6 +1,6 @@
 #include "logic.h"
 
-int string_to_int(const char *, int *, int);
+int string_to_int(const char *, int *);
 
 int string_to_lower(char *);
 
@@ -31,7 +31,7 @@ int valid_day(int day, int month, int year)
 
 int valid_year(int year)
 {
-    return year > 0 && year < 10000;
+    return year > 0;
 }
 
 int string_to_lower(char *str)
@@ -72,9 +72,9 @@ int get_month(char *month_str)
     return month;
 }
 
-int string_to_int(const char *str, int *i_str, int max_len)
+int string_to_int(const char *str, int *i_str)
 {
-    char exit_code = EXIT_SUCCESS;  // strlen(str) > max_len;
+    char exit_code = EXIT_SUCCESS;
     for (int i = 0; str[i] && !exit_code; i++)
         exit_code = !isdigit(str[i]);
     if (!exit_code)
@@ -88,13 +88,13 @@ int valid_data(string_array data, int data_len)
     if (data_len == 3)
     {
         int year;
-        if (!string_to_int(data[2], &year, 4) && valid_year(year))
+        if (!string_to_int(data[2], &year) && valid_year(year))
         {
             int month = get_month(data[1]);
             if (month)
             {
                 int day;
-                if (!string_to_int(data[0], &day, 2) && valid_day(day, month, year))
+                if (!string_to_int(data[0], &day) && valid_day(day, month, year))
                     exit_code = EXIT_SUCCESS;
             }
         }
