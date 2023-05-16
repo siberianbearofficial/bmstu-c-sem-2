@@ -2,6 +2,15 @@
 
 int modify_word(char *);
 
+int remove_last_modify_words(char *, string_array, int);
+
+int get_result_string(char *str, char *res_str)
+{
+    int words_count;
+    string_array words;
+    return split_string(str, words, &words_count) || remove_last_modify_words(res_str, words, words_count);
+}
+
 int modify_word(char *word)
 {
     if (word[0] != '\0')

@@ -1,7 +1,7 @@
 #ifndef LAB_04_04_02_STRING_ARRAY_H
 #define LAB_04_04_02_STRING_ARRAY_H
 
-#define W_LEN 256
+#define W_LEN 130
 #define MAX_W 128
 
 #include <stdlib.h>

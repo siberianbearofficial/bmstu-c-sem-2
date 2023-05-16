@@ -5,6 +5,6 @@
 #include <string.h>
 #include "string_array.h"
 
-int remove_last_modify_words(char *, string_array, int);
+int get_result_string(char *str, char *res_str);
 
 #endif //LAB_04_03_00_LOGIC_H

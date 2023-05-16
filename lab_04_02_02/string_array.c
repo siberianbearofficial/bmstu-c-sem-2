@@ -57,21 +57,15 @@ int split_string(const char *str, string_array words, int *words_count)
 {
     int exit_code = EXIT_SUCCESS;
     *words_count = 0;
-    int k = 0;
-    int word = 0;
-    for (int i = 0; str[i] && !exit_code; i++)
+    for (int i = 0, k = 0; str[i] && !exit_code; i++)
     {
         if (is_delimiter(str[i]))
         {
-            if (word)
+            if (k && k < W_LEN && *words_count < MAX_W)
             {
-                if (k < W_LEN && *words_count < MAX_W)
-                {
-                    words[*words_count][k] = '\0';
-                    word = 0;
-                    k = 0;
-                    (*words_count)++;
-                }
+                words[*words_count][k] = '\0';
+                k = 0;
+                (*words_count)++;
             }
         }
         else
@@ -82,14 +76,8 @@ int split_string(const char *str, string_array words, int *words_count)
             {
                 words[*words_count][k] = str[i];
                 k++;
-                word = 1;
             }
         }
-    }
-    if (k && *words_count < MAX_W)
-    {
-        words[*words_count][k] = '\0';
-        (*words_count)++;
     }
     return *words_count <= 0 || exit_code;
 }

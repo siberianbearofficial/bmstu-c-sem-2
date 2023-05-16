@@ -45,30 +45,9 @@ int get_month(char *month_str)
 {
     string_to_lower(month_str);
     int month = 0;
-    if (!strcmp(month_str, "january"))
-        month = 1;
-    else if (!strcmp(month_str, "february"))
-        month = 2;
-    else if (!strcmp(month_str, "march"))
-        month = 3;
-    else if (!strcmp(month_str, "april"))
-        month = 4;
-    else if (!strcmp(month_str, "may"))
-        month = 5;
-    else if (!strcmp(month_str, "june"))
-        month = 6;
-    else if (!strcmp(month_str, "july"))
-        month = 7;
-    else if (!strcmp(month_str, "august"))
-        month = 8;
-    else if (!strcmp(month_str, "september"))
-        month = 9;
-    else if (!strcmp(month_str, "october"))
-        month = 10;
-    else if (!strcmp(month_str, "november"))
-        month = 11;
-    else if (!strcmp(month_str, "december"))
-        month = 12;
+    for (int i = 0; i < 12 && !month; i++)
+        if (!strcmp(month_str, months_strings[i]))
+            month = i + 1;
     return month;
 }
 

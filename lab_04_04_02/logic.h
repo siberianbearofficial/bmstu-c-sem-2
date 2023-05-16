@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "constants.h"
 #include "string_array.h"
 
 int valid_data(string_array, int);

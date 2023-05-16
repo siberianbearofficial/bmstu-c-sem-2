@@ -6,5 +6,6 @@
 #include "constants.h"
 #include "string_array.h"
 #include "input.h"
+#include "logic.h"
 
 #endif //LAB_04_02_02_MAIN_H

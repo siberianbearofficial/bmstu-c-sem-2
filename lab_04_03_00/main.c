@@ -17,20 +17,12 @@ int main(void)
 {
     char exit_code = EXIT_FAILURE;
     char str[S_LEN];
+    char res_str[S_LEN];
 
-    if (!input_line(str))
+    if (!input_line(str) && !get_result_string(str, res_str))
     {
-        int words_count;
-        string_array words;
-        if (!split_string(str, words, &words_count))
-        {
-            char result_string[S_LEN];
-            if (!remove_last_modify_words((char *) &result_string, words, words_count))
-            {
-                printf("Result: %s\n", result_string);
-                exit_code = EXIT_SUCCESS;
-            }
-        }
+        printf("Result: %s\n", res_str);
+        exit_code = EXIT_SUCCESS;
     }
 
     return exit_code;

@@ -14,11 +14,10 @@ int append_word(const char *word, string_array array, int *n)
         {
             array[*n][i] = '\0';
             (*n)++;
-            exit_code |= word[i];
         }
+        else
+            exit_code = EXIT_FAILURE;
     }
-    else
-        exit_code = EXIT_FAILURE;
     return exit_code;
 }
 
@@ -29,17 +28,15 @@ int split_string(char *str, string_array words, int *words_count)
     if (strrchr(str, '\n') && str[0] != '\n')
     {
         char *token = strtok(str, delim);
-        if (token)
+
+        while (token)
         {
-            do
-            {
-                if (!append_word(token, words, words_count))
-                    token = strtok(NULL, delim);
-                else
-                    token = NULL;
-            }
-            while (token);
+            if (!append_word(token, words, words_count))
+                token = strtok(NULL, delim);
+            else
+                token = NULL;
         }
+
     }
     return (char) (*words_count <= 0);
 }

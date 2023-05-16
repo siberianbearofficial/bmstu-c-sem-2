@@ -11,30 +11,20 @@ int main(void)
     char exit_code = EXIT_FAILURE;
     char str1[S_LEN], str2[S_LEN];
 
-    if (!input_line(str1))
+    if (!input_line(str1) && !input_line(str2))
     {
-        if (!input_line(str2))
+        int words1_count, words2_count;
+        string_array words1, words2;
+
+        if (!prepare_arrays(str1, str2, words1, &words1_count, words2, &words2_count))
         {
-            int words1_count;
-            string_array words1;
-            if (!split_string(str1, words1, &words1_count))
-            {
-                int words2_count;
-                string_array words2;
-                if (!split_string(str2, words2, &words2_count))
-                {
-                    remove_duplicates(words1, &words1_count);
-                    printf("Result: ");
-                    for (int i = 0; i < words1_count; i++)
-                    {
-                        if (string_array_contains(words1[i], words2, words2_count))
-                            printf("%s yes\n", words1[i]);
-                        else
-                            printf("%s no\n", words1[i]);
-                    }
-                    exit_code = EXIT_SUCCESS;
-                }
-            }
+            printf("Result: ");
+            for (int i = 0; i < words1_count; i++)
+                if (string_array_contains(words1[i], words2, words2_count))
+                    printf("%s yes\n", words1[i]);
+                else
+                    printf("%s no\n", words1[i]);
+            exit_code = EXIT_SUCCESS;
         }
     }
 

@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "constants.h"
-#include "string_array.h"
 #include "logic.h"
 #include "input.h"
 
