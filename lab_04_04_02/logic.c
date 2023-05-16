@@ -14,6 +14,15 @@ int valid_year(int);
 
 int get_month(char *);
 
+int valid_data(string_array, int);
+
+int valid(char *str)
+{
+    string_array data;
+    int data_len;
+    return split_string(str, data, &data_len) || valid_data(data, data_len);
+}
+
 int is_leap_year(int year)
 {
     return !(year % 4) && (!(year % 400) || (year % 100));

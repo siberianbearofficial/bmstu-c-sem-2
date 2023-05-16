@@ -7,6 +7,6 @@
 #include "constants.h"
 #include "string_array.h"
 
-int valid_data(string_array, int);
+int valid(char *);
 
 #endif //LAB_04_04_02_LOGIC_H
