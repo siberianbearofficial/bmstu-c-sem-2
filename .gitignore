@@ -1,5 +1,13 @@
+**/.idea/**
 *.exe
 *.out
 *.o
 *.pch
 *.gch
+*.gcda
+*.gcno
+*.gcov
+main
+results.txt
+task.pdf
+**/report/**
