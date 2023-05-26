@@ -15,12 +15,13 @@ int main(void)
     {
         int words1_count, words2_count;
         string_array words1, words2;
+        int contains[MAX_W];
 
-        if (!prepare_arrays(str1, str2, words1, &words1_count, words2, &words2_count))
+        if (!prepare_arrays(contains, str1, str2, words1, &words1_count, words2, &words2_count))
         {
             printf("Result: ");
             for (int i = 0; i < words1_count; i++)
-                if (string_array_contains(words1[i], words2, words2_count))
+                if (contains[i])
                     printf("%s yes\n", words1[i]);
                 else
                     printf("%s no\n", words1[i]);
