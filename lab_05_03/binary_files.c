@@ -21,7 +21,7 @@ int put_number_by_pos(FILE *f, int pos, int num)
     if (!fseek(f, pos * sizeof(num), SEEK_SET))
     {
         int buf[1] = {
-        num
+            num
         };
         if (fwrite(&buf, sizeof(num), 1, f) == 1)
         {

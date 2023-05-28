@@ -8,7 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct student_struct {
+typedef struct student_struct
+{
     char surname[SURNAME_LEN];
     char name[NAME_LEN];
     unsigned int marks[MARKS_COUNT];
