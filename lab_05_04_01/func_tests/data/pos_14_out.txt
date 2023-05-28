@@ -1,0 +1,5 @@
+Onishchuk Ivan, marks: 3 5 6 3
+Parfenov Arsenij, marks: 5 3 4 2
+Serysheva Dar'ya, marks: 6 1 5 5
+Suhilina Aleksandr, marks: 6 2 1 2
+Tarasenko Egor, marks: 2 1 1 1

@@ -1,0 +1,12 @@
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+#define SORT_ARGS 0
+#define FILTER_ARGS 1
+#define DELETE_ARGS 2
+#define UNKNOWN_ARGS 53
+#define SORT_ARGS_COUNT 3
+#define FILTER_ARGS_COUNT 5
+#define DELETE_ARGS_COUNT 3
+
+#endif //CONSTANTS_H

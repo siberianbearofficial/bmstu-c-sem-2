@@ -1,0 +1,5 @@
+Surname Aleksandr, marks: 6 2 1 2
+Surname Arsenij, marks: 5 3 4 2
+Surname Dar'ya, marks: 6 1 5 5
+Surname Egor, marks: 2 1 1 1
+Surname Ivan, marks: 3 5 6 3
