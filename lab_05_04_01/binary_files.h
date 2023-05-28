@@ -6,9 +6,9 @@
 #include <unistd.h>
 #include "student.h"
 
-int put_student_by_pos(FILE *f, int pos, Student *student);
+int put_student_by_pos(FILE *f, int pos, student_struct *student);
 
-int get_student_by_pos(FILE *f, int pos, Student *student);
+int get_student_by_pos(FILE *f, int pos, student_struct *student);
 
 int get_file_size(FILE *f, int *size);
 

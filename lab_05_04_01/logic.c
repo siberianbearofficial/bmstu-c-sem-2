@@ -1,12 +1,12 @@
 #include "logic.h"
 
-int greater_than(Student *student1, Student *student2, int *gt);
+int greater_than(student_struct *student1, student_struct *student2, int *gt);
 
 int startswith(const char *substr, const char *str);
 
 double average(unsigned int *arr);
 
-int greater_than(Student *student1, Student *student2, int *gt)
+int greater_than(student_struct *student1, student_struct *student2, int *gt)
 {
     int exit_code = EXIT_FAILURE;
 
@@ -38,7 +38,7 @@ int read_file(FILE *f, int n)
     int exit_code = EXIT_SUCCESS;
     for (int i = 0; i < n && !exit_code; i++)
     {
-        Student student;
+        student_struct student;
         if (!get_student_by_pos(f, i, &student))
             print_student(&student);
         else
@@ -54,7 +54,7 @@ int sort_file(FILE *f, int n)
     {
         for (int j = i + 1; j < n && !exit_code; j++)
         {
-            Student student1, student2;
+            student_struct student1, student2;
             if (!get_student_by_pos(f, i, &student1) && !get_student_by_pos(f, j, &student2))
             {
                 int gt;
@@ -76,7 +76,7 @@ int filter_file(FILE *fin, FILE *fout, const char *substr, int n)
     int j = 0;
     for (int i = 0; i < n && !exit_code; i++)
     {
-        Student student;
+        student_struct student;
         if (!get_student_by_pos(fin, i, &student))
             exit_code = startswith(substr, student.surname) && put_student_by_pos(fout, j++, &student);
         else
@@ -91,7 +91,7 @@ int delete_file(FILE *f, int n)
     double file_av = 0;
     for (int i = 0; i < n && !exit_code; i++)
     {
-        Student student;
+        student_struct student;
         if (!get_student_by_pos(f, i, &student))
             file_av += average(student.marks);
         else
@@ -104,7 +104,7 @@ int delete_file(FILE *f, int n)
         int j = 0;
         for (int i = 0; i < n && !exit_code; i++)
         {
-            Student student;
+            student_struct student;
             if (!get_student_by_pos(f, i, &student))
                 exit_code = (average(student.marks) >= file_av) && put_student_by_pos(f, j++, &student);
             else

@@ -8,12 +8,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Student {
+typedef struct student_struct {
     char surname[SURNAME_LEN];
     char name[NAME_LEN];
     unsigned int marks[MARKS_COUNT];
-} Student;
+} student_struct;
 
-int print_student(Student *student);
+int print_student(student_struct *student);
 
 #endif //STUDENT_H

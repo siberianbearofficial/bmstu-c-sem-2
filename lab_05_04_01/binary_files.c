@@ -1,11 +1,11 @@
 #include "binary_files.h"
 
-int put_student_by_pos(FILE *f, int pos, Student *student)
+int put_student_by_pos(FILE *f, int pos, student_struct *student)
 {
     int exit_code = EXIT_FAILURE;
-    if (!fseek(f, pos * sizeof(Student), SEEK_SET))
+    if (!fseek(f, pos * sizeof(student_struct), SEEK_SET))
     {
-        if (fwrite(student, sizeof(Student), 1, f) == 1)
+        if (fwrite(student, sizeof(student_struct), 1, f) == 1)
         {
             fflush(f);
             exit_code = EXIT_SUCCESS;
@@ -14,11 +14,11 @@ int put_student_by_pos(FILE *f, int pos, Student *student)
     return exit_code;
 }
 
-int get_student_by_pos(FILE *f, int pos, Student *student)
+int get_student_by_pos(FILE *f, int pos, student_struct *student)
 {
     int exit_code = EXIT_FAILURE;
-    if (!fseek(f, pos * sizeof(Student), SEEK_SET))
-        exit_code = fread(student, sizeof(Student), 1, f) != 1;
+    if (!fseek(f, pos * sizeof(student_struct), SEEK_SET))
+        exit_code = fread(student, sizeof(student_struct), 1, f) != 1;
     return exit_code;
 }
 
@@ -28,9 +28,9 @@ int get_file_size(FILE *f, int *size)
     if (!fseek(f, 0, SEEK_END))
     {
         int size_in_bytes = ftell(f);
-        if (size_in_bytes > 0 && !(size_in_bytes % sizeof(Student)))
+        if (size_in_bytes > 0 && !(size_in_bytes % sizeof(student_struct)))
         {
-            *size = size_in_bytes / sizeof(Student);
+            *size = size_in_bytes / sizeof(student_struct);
             exit_code = EXIT_SUCCESS;
         }
     }
@@ -39,5 +39,5 @@ int get_file_size(FILE *f, int *size)
 
 int cut(FILE *f, int size)
 {
-    return ftruncate(f->_fileno, size * sizeof(Student));
+    return ftruncate(fileno(f), size * sizeof(student_struct));
 }

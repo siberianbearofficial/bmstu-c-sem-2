@@ -20,7 +20,9 @@ int put_number_by_pos(FILE *f, int pos, int num)
     int exit_code = EXIT_FAILURE;
     if (!fseek(f, pos * sizeof(num), SEEK_SET))
     {
-        int buf[1] = {num};
+        int buf[1] = {
+        num
+        };
         if (fwrite(&buf, sizeof(num), 1, f) == 1)
         {
             fflush(f);

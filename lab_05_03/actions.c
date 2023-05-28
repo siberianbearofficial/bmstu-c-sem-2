@@ -17,20 +17,20 @@ int process(int argc, char **argv)
         switch (mode)
         {
             case 0:
-            {
-                exit_code = create(argv[2]);
-                break;
-            }
+                {
+                    exit_code = create(argv[2]);
+                    break;
+                }
             case 1:
-            {
-                exit_code = print(argv[2]);
-                break;
-            }
+                {
+                    exit_code = print(argv[2]);
+                    break;
+                }
             case 2:
-            {
-                exit_code = sort(argv[2]);
-                break;
-            }
+                {
+                    exit_code = sort(argv[2]);
+                    break;
+                }
         }
     }
     return exit_code;
