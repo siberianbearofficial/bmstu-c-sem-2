@@ -1,13 +1,10 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#define SURNAME_LEN 25
-#define NAME_LEN 10
-#define MARKS_COUNT 4
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
+#include "constants.h"
 
 typedef struct student_struct
 {

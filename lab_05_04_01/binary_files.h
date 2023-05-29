@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "student.h"
+#include "constants.h"
 
 int put_student_by_pos(FILE *f, int pos, student_struct *student);
 

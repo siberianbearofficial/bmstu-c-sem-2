@@ -5,7 +5,7 @@ int put_student_by_pos(FILE *f, int pos, student_struct *student)
     int exit_code = EXIT_FAILURE;
     if (!fseek(f, pos * sizeof(student_struct), SEEK_SET))
     {
-        if (fwrite(student, sizeof(student_struct), 1, f) == 1)
+        if (fwrite(student, sizeof(student_struct), STRUCTS_COUNT, f) == STRUCTS_COUNT)
         {
             fflush(f);
             exit_code = EXIT_SUCCESS;
@@ -18,7 +18,7 @@ int get_student_by_pos(FILE *f, int pos, student_struct *student)
 {
     int exit_code = EXIT_FAILURE;
     if (!fseek(f, pos * sizeof(student_struct), SEEK_SET))
-        exit_code = fread(student, sizeof(student_struct), 1, f) != 1;
+        exit_code = fread(student, sizeof(student_struct), STRUCTS_COUNT, f) != STRUCTS_COUNT;
     return exit_code;
 }
 

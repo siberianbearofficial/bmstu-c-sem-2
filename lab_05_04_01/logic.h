@@ -6,6 +6,7 @@
 #include <string.h>
 #include "student.h"
 #include "binary_files.h"
+#include "constants.h"
 
 int read_file(FILE *f, int n);
 

@@ -5,27 +5,27 @@ int get_mode(const char *mod_str);
 int process(int argc, char **argv)
 {
     int exit_code = UNKNOWN_ARGS;
-    if (argc >= 2)
+    if (argc >= MIN_ARGS_COUNT)
     {
-        int mode = get_mode(argv[1]);
+        int mode = get_mode(argv[MODE_IND]);
         switch (mode)
         {
             case SORT_ARGS:
                 {
                     if (argc == SORT_ARGS_COUNT)
-                        exit_code = sort(argv[2]);
+                        exit_code = sort(argv[PATH_IND]);
                     break;
                 }
             case FILTER_ARGS:
                 {
                     if (argc == FILTER_ARGS_COUNT)
-                        exit_code = filter(argv[2], argv[3], argv[4]);
+                        exit_code = filter(argv[SRC_IND], argv[DST_IND], argv[SUBSTR_IND]);
                     break;
                 }
             case DELETE_ARGS:
                 {
                     if (argc == DELETE_ARGS_COUNT)
-                        exit_code = delete(argv[2]);
+                        exit_code = delete(argv[PATH_IND]);
                     break;
                 }
         }
@@ -36,11 +36,11 @@ int process(int argc, char **argv)
 int get_mode(const char *mod_str)
 {
     int mode;
-    if (!strcmp(mod_str, "sb"))
+    if (!strcmp(mod_str, SORT_KEY))
         mode = SORT_ARGS;
-    else if (!strcmp(mod_str, "fb"))
+    else if (!strcmp(mod_str, FILTER_KEY))
         mode = FILTER_ARGS;
-    else if (!strcmp(mod_str, "db"))
+    else if (!strcmp(mod_str, DELETE_KEY))
         mode = DELETE_ARGS;
     else
         mode = UNKNOWN_ARGS;
@@ -50,7 +50,7 @@ int get_mode(const char *mod_str)
 int print(const char *path)
 {
     int exit_code = EXIT_FAILURE;
-    FILE *f = fopen(path, "rb");
+    FILE *f = fopen(path, READ_MODE);
     if (f)
     {
         int n;
@@ -62,7 +62,7 @@ int print(const char *path)
 int sort(const char *path)
 {
     int exit_code = EXIT_FAILURE;
-    FILE *f = fopen(path, "rb+");
+    FILE *f = fopen(path, READ_WRITE_MODE);
     if (f)
     {
         int n;
@@ -76,8 +76,8 @@ int sort(const char *path)
 int filter(const char *src, const char *dst, const char *substr)
 {
     int exit_code = EXIT_FAILURE;
-    FILE *fin = fopen(src, "rb");
-    FILE *fout = fopen(dst, "wb");
+    FILE *fin = fopen(src, READ_MODE);
+    FILE *fout = fopen(dst, WRITE_MODE);
     if (fin && fout)
     {
         int n;
@@ -91,7 +91,7 @@ int filter(const char *src, const char *dst, const char *substr)
 int delete(const char *path)
 {
     int exit_code = EXIT_FAILURE;
-    FILE *f = fopen(path, "rb+");
+    FILE *f = fopen(path, READ_WRITE_MODE);
     if (f)
     {
         int n;
