@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "constants.h"
 
 int get_file_size(FILE *f, int *size);
 

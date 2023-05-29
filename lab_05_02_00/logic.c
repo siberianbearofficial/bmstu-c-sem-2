@@ -3,9 +3,9 @@
 int process(int argc, char **argv, double *nearest_value)
 {
     int exit_code = EXIT_FAILURE;
-    if (argc == 2)
+    if (argc == ARGS_COUNT)
     {
-        FILE *fin = fopen(argv[1], "r");
+        FILE *fin = fopen(argv[PATH_IND], READ_MODE);
         if (fin)
         {
             double av;
@@ -35,14 +35,14 @@ int nearest(FILE *fin, double value, double *nearest_value)
 {
     int exit_code = EXIT_FAILURE;
     double current;
-    if (fscanf(fin, "%lf", &current) == 1)
+    if (fscanf(fin, "%lf", &current) == NUMS_COUNT)
     {
         double min_diff = fabs(current - value);
         *nearest_value = current;
         exit_code = EXIT_SUCCESS;
         int count = 1;
         double first = current;
-        while (fscanf(fin, "%lf", &current) == 1)
+        while (fscanf(fin, "%lf", &current) == NUMS_COUNT)
         {
             double current_diff = fabs(current - value);
             if (current_diff < min_diff)

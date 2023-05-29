@@ -4,7 +4,7 @@ int greater_than(student_struct *student1, student_struct *student2, int *gt);
 
 int startswith(const char *substr, const char *str);
 
-double average(unsigned int *arr);
+double average(uint32_t *arr);
 
 int greater_than(student_struct *student1, student_struct *student2, int *gt)
 {
@@ -28,7 +28,7 @@ int startswith(const char *substr, const char *str)
     return strncmp(substr, str, strlen(substr)) == 0;
 }
 
-double average(unsigned int *arr)
+double average(uint32_t *arr)
 {
     return ((double) (arr[0] + arr[1] + arr[2] + arr[3])) / 4;
 }

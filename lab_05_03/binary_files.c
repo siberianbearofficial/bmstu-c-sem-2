@@ -5,8 +5,8 @@ int get_number_by_pos(FILE *f, int pos, int *num)
     int exit_code = EXIT_FAILURE;
     if (!fseek(f, pos * sizeof(*num), SEEK_SET))
     {
-        int buf[1];
-        if (fread(&buf, sizeof(*num), 1, f) == 1)
+        int buf[NUMS_COUNT];
+        if (fread(&buf, sizeof(*num), NUMS_COUNT, f) == NUMS_COUNT)
         {
             *num = buf[0];
             exit_code = EXIT_SUCCESS;
@@ -20,10 +20,10 @@ int put_number_by_pos(FILE *f, int pos, int num)
     int exit_code = EXIT_FAILURE;
     if (!fseek(f, pos * sizeof(num), SEEK_SET))
     {
-        int buf[1] = {
+        int buf[NUMS_COUNT] = {
             num
         };
-        if (fwrite(&buf, sizeof(num), 1, f) == 1)
+        if (fwrite(&buf, sizeof(num), NUMS_COUNT, f) == NUMS_COUNT)
         {
             fflush(f);
             exit_code = EXIT_SUCCESS;

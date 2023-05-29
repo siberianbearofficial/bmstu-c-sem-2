@@ -5,13 +5,13 @@ int rand_int(long seed);
 int rand_int(long seed)
 {
     srand(time(0) + seed);
-    return rand() % 100;
+    return rand() % MAX_NUM;
 }
 
 int generate_random_file(FILE *f)
 {
     int exit_code = EXIT_SUCCESS;
-    for (int i = 0; !exit_code && i < rand_int(78743657238) + 1; i++)
+    for (int i = 0; !exit_code && i < rand_int(SEED) + 1; i++)
         exit_code = put_number_by_pos(f, i, rand_int(i));
     return exit_code;
 }

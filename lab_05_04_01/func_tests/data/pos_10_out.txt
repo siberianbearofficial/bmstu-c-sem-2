@@ -1,5 +1,5 @@
-Serysheva Dar'ya, marks: 0 0 0 0
-Onishchuk Ivan, marks: 0 0 0 0
-Parfenov Arsenij, marks: 0 0 0 0
-Tarasenko Egor, marks: 0 0 0 0
-Suhilina Aleksandr, marks: 0 0 0 0
+Serysheva Dar'ya 0 0 0 0
+Onishchuk Ivan 0 0 0 0
+Parfenov Arsenij 0 0 0 0
+Tarasenko Egor 0 0 0 0
+Suhilina Aleksandr 0 0 0 0

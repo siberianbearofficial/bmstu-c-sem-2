@@ -4,10 +4,10 @@ int process(FILE *f, int *max_1, int *max_2)
 {
     int exit_code = EXIT_SUCCESS;
     int i, num;
-    if (fscanf(f, "%d", &num) == 1)
+    if (fscanf(f, "%d", &num) == NUMS_COUNT)
     {
         *max_1 = num;
-        if (fscanf(f, "%d", &num) == 1)
+        if (fscanf(f, "%d", &num) == NUMS_COUNT)
         {
             if (num > *max_1)
             {

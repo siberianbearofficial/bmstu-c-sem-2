@@ -11,24 +11,24 @@ int sort(const char *path);
 int process(int argc, char **argv)
 {
     int exit_code = EXIT_FAILURE;
-    if (argc == 3)
+    if (argc == ARGS_COUNT)
     {
-        int mode = get_mode(argv[1]);
+        int mode = get_mode(argv[MODE_IND]);
         switch (mode)
         {
-            case 0:
+            case CREATE_ARGS:
                 {
-                    exit_code = create(argv[2]);
+                    exit_code = create(argv[PATH_IND]);
                     break;
                 }
-            case 1:
+            case PRINT_ARGS:
                 {
-                    exit_code = print(argv[2]);
+                    exit_code = print(argv[PATH_IND]);
                     break;
                 }
-            case 2:
+            case SORT_ARGS:
                 {
-                    exit_code = sort(argv[2]);
+                    exit_code = sort(argv[PATH_IND]);
                     break;
                 }
         }
@@ -39,21 +39,21 @@ int process(int argc, char **argv)
 int get_mode(const char *mod_str)
 {
     int mode;
-    if (!strcmp(mod_str, "c"))
-        mode = 0;
-    else if (!strcmp(mod_str, "p"))
-        mode = 1;
-    else if (!strcmp(mod_str, "s"))
-        mode = 2;
+    if (!strcmp(mod_str, CREATE_KEY))
+        mode = CREATE_ARGS;
+    else if (!strcmp(mod_str, PRINT_KEY))
+        mode = PRINT_ARGS;
+    else if (!strcmp(mod_str, SORT_KEY))
+        mode = SORT_ARGS;
     else
-        mode = 100;
+        mode = UNKNOWN_ARGS;
     return mode;
 }
 
 int create(const char *path)
 {
     int exit_code = EXIT_FAILURE;
-    FILE *f = fopen(path, "wb");
+    FILE *f = fopen(path, WRITE_MODE);
     exit_code = !f || generate_random_file(f) || fclose(f);
     return exit_code;
 }
@@ -61,7 +61,7 @@ int create(const char *path)
 int print(const char *path)
 {
     int exit_code = EXIT_FAILURE;
-    FILE *f = fopen(path, "rb");
+    FILE *f = fopen(path, READ_MODE);
     if (f)
     {
         int n;
@@ -73,7 +73,7 @@ int print(const char *path)
 int sort(const char *path)
 {
     int exit_code = EXIT_FAILURE;
-    FILE *f = fopen(path, "rb+");
+    FILE *f = fopen(path, READ_WRITE_MODE);
     if (f)
     {
         int n;

@@ -1,10 +1,10 @@
-Serysheva Dar'ya, marks: 6 1 5 5
-Onishchuk Ivan, marks: 3 5 6 3
-Parfenov Arsenij, marks: 5 3 4 2
-Soshnin Nikita, marks: 6 6 1 5
-Bugakov Ivan, marks: 5 6 6 3
-Slinyakov Mihail, marks: 6 4 5 3
-Timofeev Daniil, marks: 3 5 3 2
-Paramonova Ekaterina, marks: 5 2 5 5
-Asadullin Tagir, marks: 2 3 6 2
-ZHilyaev Anton, marks: 2 6 2 3
+Serysheva Dar'ya 6 1 5 5
+Onishchuk Ivan 3 5 6 3
+Parfenov Arsenij 5 3 4 2
+Soshnin Nikita 6 6 1 5
+Bugakov Ivan 5 6 6 3
+Slinyakov Mihail 6 4 5 3
+Timofeev Daniil 3 5 3 2
+Paramonova Ekaterina 5 2 5 5
+Asadullin Tagir 2 3 6 2
+ZHilyaev Anton 2 6 2 3

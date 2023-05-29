@@ -1,5 +1,5 @@
-Surname Name1, marks: 5 1 5 5
-Surname Name2, marks: 3 2 4 4
-Surname Name3, marks: 7 2 5 4
-Surname Name4, marks: 1 6 4 5
-Surname Name5, marks: 2 3 5 4
+Surname Name1 5 1 5 5
+Surname Name2 3 2 4 4
+Surname Name3 7 2 5 4
+Surname Name4 1 6 4 5
+Surname Name5 2 3 5 4

@@ -84,7 +84,7 @@ int filter(const char *src, const char *dst, const char *substr)
         exit_code = get_file_size(fin, &n) || filter_file(fin, fout, substr, n) || fclose(fin) || fclose(fout);
     }
     if (!exit_code)
-        print(dst);  // TODO: remove this print
+        print(dst);
     return exit_code;
 }
 
@@ -98,6 +98,6 @@ int delete(const char *path)
         exit_code = get_file_size(f, &n) || delete_file(f, n) || fclose(f);
     }
     if (!exit_code)
-        print(path);  // TODO: remove this print
+        print(path);
     return exit_code;
 }

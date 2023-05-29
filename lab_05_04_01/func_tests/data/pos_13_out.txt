@@ -1,21 +1,21 @@
-Asadullin Tagir, marks: 2 3 6 2
-Bugakov Ivan, marks: 5 6 6 3
-Enikeev Timur, marks: 1 5 1 5
-Kozin Mihail, marks: 1 3 4 2
-Krivko Sergej, marks: 5 3 2 1
-Onishchuk Ivan, marks: 3 5 6 3
-Orlov Aleksej, marks: 5 1 5 1
-Paramonova Ekaterina, marks: 5 2 5 5
-Parfenov Arsenij, marks: 5 3 4 2
-SHirokov Andrej, marks: 6 1 2 2
-Sal'nikov Mihail, marks: 2 2 1 5
-Serysheva Dar'ya, marks: 6 1 5 5
-Slinyakov Mihail, marks: 6 4 5 3
-Soshnin Nikita, marks: 6 6 1 5
-Suhilina Aleksandr, marks: 6 2 1 2
-Tarasenko Egor, marks: 2 1 1 1
-Timofeev Daniil, marks: 3 5 3 2
-Vavilova Varvara, marks: 1 1 1 5
-Volov Aleksandr, marks: 4 3 2 3
-YAkovlev Roman, marks: 1 4 2 1
-ZHilyaev Anton, marks: 2 6 2 3
+Asadullin Tagir 2 3 6 2
+Bugakov Ivan 5 6 6 3
+Enikeev Timur 1 5 1 5
+Kozin Mihail 1 3 4 2
+Krivko Sergej 5 3 2 1
+Onishchuk Ivan 3 5 6 3
+Orlov Aleksej 5 1 5 1
+Paramonova Ekaterina 5 2 5 5
+Parfenov Arsenij 5 3 4 2
+SHirokov Andrej 6 1 2 2
+Sal'nikov Mihail 2 2 1 5
+Serysheva Dar'ya 6 1 5 5
+Slinyakov Mihail 6 4 5 3
+Soshnin Nikita 6 6 1 5
+Suhilina Aleksandr 6 2 1 2
+Tarasenko Egor 2 1 1 1
+Timofeev Daniil 3 5 3 2
+Vavilova Varvara 1 1 1 5
+Volov Aleksandr 4 3 2 3
+YAkovlev Roman 1 4 2 1
+ZHilyaev Anton 2 6 2 3

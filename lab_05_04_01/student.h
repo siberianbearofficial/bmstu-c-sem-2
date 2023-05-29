@@ -7,12 +7,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
 
 typedef struct student_struct
 {
     char surname[SURNAME_LEN];
     char name[NAME_LEN];
-    unsigned int marks[MARKS_COUNT];
+    uint32_t marks[MARKS_COUNT];
 } student_struct;
 
 int print_student(student_struct *student);

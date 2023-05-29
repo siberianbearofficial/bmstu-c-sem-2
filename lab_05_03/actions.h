@@ -6,6 +6,7 @@
 #include <string.h>
 #include "logic.h"
 #include "binary_files.h"
+#include "constants.h"
 
 int process(int argc, char **argv);
 
