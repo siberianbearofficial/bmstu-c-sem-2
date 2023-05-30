@@ -1,4 +1,4 @@
-Surname Aleksandr 6 2 1 2
+Surname Aleksandra 6 2 1 2
 Surname Arsenij 5 3 4 2
 Surname Dar'ya 6 1 5 5
 Surname Egor 2 1 1 1

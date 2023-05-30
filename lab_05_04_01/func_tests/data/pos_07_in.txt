@@ -1,4 +1,4 @@
-#define STUDENT 25s10sx4i
+#define STUDENT 26s11s3x4i
 STUDENT Serysheva Dar'ya 1 1 5 1
 STUDENT Onishchuk Ivan 3 5 1 3
 STUDENT Parfenov Arsenij 1 3 4 2

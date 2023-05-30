@@ -1,4 +1,4 @@
-#define STUDENT 25s10sx4i
+#define STUDENT 26s11s3x4i
 STUDENT Serysheva Dar'ya 0 0 0 0
 STUDENT Onishchuk Ivan 0 0 0 0
 STUDENT Parfenov Arsenij 0 0 0 0

@@ -27,8 +27,8 @@
 
 #define STRUCTS_COUNT 1
 
-#define SURNAME_LEN 25
-#define NAME_LEN 10
+#define SURNAME_LEN 26
+#define NAME_LEN 11
 #define MARKS_COUNT 4
 
 #endif //CONSTANTS_H

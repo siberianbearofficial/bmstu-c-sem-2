@@ -1,4 +1,4 @@
-#define STUDENT 25s10sx4i
+#define STUDENT 26s11s3x4i
 STUDENT Surname Name1 5 1 5 5
 STUDENT Surname Name2 3 2 4 4
 STUDENT Surname Name3 7 2 5 4

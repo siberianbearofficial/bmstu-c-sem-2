@@ -12,7 +12,7 @@ Sal'nikov Mihail 2 2 1 5
 Serysheva Dar'ya 6 1 5 5
 Slinyakov Mihail 6 4 5 3
 Soshnin Nikita 6 6 1 5
-Suhilina Aleksandr 6 2 1 2
+Suhilina Aleksandra 6 2 1 2
 Tarasenko Egor 2 1 1 1
 Timofeev Daniil 3 5 3 2
 Vavilova Varvara 1 1 1 5
