@@ -1,0 +1,1 @@
+Input array elements: Array: 23 23 87 87 87 234 234 765 1234 4354 
