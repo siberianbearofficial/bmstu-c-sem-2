@@ -6,15 +6,16 @@
 #include "binary_files.h"
 #include "logic.h"
 #include "constants.h"
+#include "student.h"
 
 int process(int argc, char **argv);
 
-int print(const char *path);
+int print(const char *path, student_struct *student);
 
-int sort(const char *path);
+int sort(const char *path, student_struct *student1, student_struct *student2);
 
-int filter(const char *src, const char *dst, const char *substr);
+int filter(const char *src, const char *dst, const char *substr, student_struct *student);
 
-int delete(const char *path);
+int delete(const char *path, student_struct *student);
 
 #endif //ACTIONS_H

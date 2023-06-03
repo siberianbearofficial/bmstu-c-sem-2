@@ -33,33 +33,31 @@ double average(uint32_t *arr)
     return ((double) (arr[0] + arr[1] + arr[2] + arr[3])) / 4;
 }
 
-int read_file(FILE *f, int n)
+int read_file(FILE *f, int n, student_struct *student)
 {
     int exit_code = EXIT_SUCCESS;
     for (int i = 0; i < n && !exit_code; i++)
     {
-        student_struct student;
-        if (!get_student_by_pos(f, i, &student))
-            print_student(&student);
+        if (!get_student_by_pos(f, i, student))
+            print_student(student);
         else
             exit_code = EXIT_FAILURE;
     }
     return exit_code;
 }
 
-int sort_file(FILE *f, int n)
+int sort_file(FILE *f, int n, student_struct *student1, student_struct *student2)
 {
     int exit_code = EXIT_SUCCESS;
     for (int i = 0; i < n - 1 && !exit_code; i++)
     {
         for (int j = i + 1; j < n && !exit_code; j++)
         {
-            student_struct student1, student2;
-            if (!get_student_by_pos(f, i, &student1) && !get_student_by_pos(f, j, &student2))
+            if (!get_student_by_pos(f, i, student1) && !get_student_by_pos(f, j, student2))
             {
                 int gt;
-                if (!greater_than(&student1, &student2, &gt))
-                    exit_code = (gt > 0) && (put_student_by_pos(f, i, &student2) || put_student_by_pos(f, j, &student1));
+                if (!greater_than(student1, student2, &gt))
+                    exit_code = (gt > 0) && (put_student_by_pos(f, i, student2) || put_student_by_pos(f, j, student1));
                 else
                     exit_code = EXIT_FAILURE;
             }
@@ -70,30 +68,28 @@ int sort_file(FILE *f, int n)
     return exit_code;
 }
 
-int filter_file(FILE *fin, FILE *fout, const char *substr, int n)
+int filter_file(FILE *fin, FILE *fout, const char *substr, int n, student_struct *student)
 {
     int exit_code = EXIT_SUCCESS;
     int j = 0;
     for (int i = 0; i < n && !exit_code; i++)
     {
-        student_struct student;
-        if (!get_student_by_pos(fin, i, &student))
-            exit_code = startswith(substr, student.surname) && put_student_by_pos(fout, j++, &student);
+        if (!get_student_by_pos(fin, i, student))
+            exit_code = startswith(substr, student->surname) && put_student_by_pos(fout, j++, student);
         else
             exit_code = EXIT_FAILURE;
     }
     return exit_code || !j;
 }
 
-int delete_file(FILE *f, int n)
+int delete_file(FILE *f, int n, student_struct *student)
 {
     int exit_code = EXIT_SUCCESS;
     double file_av = 0;
     for (int i = 0; i < n && !exit_code; i++)
     {
-        student_struct student;
-        if (!get_student_by_pos(f, i, &student))
-            file_av += average(student.marks);
+        if (!get_student_by_pos(f, i, student))
+            file_av += average(student->marks);
         else
             exit_code = EXIT_FAILURE;
     }
@@ -104,16 +100,13 @@ int delete_file(FILE *f, int n)
         int j = 0;
         for (int i = 0; i < n && !exit_code; i++)
         {
-            student_struct student;
-            if (!get_student_by_pos(f, i, &student))
-                exit_code = (average(student.marks) >= file_av) && put_student_by_pos(f, j++, &student);
+            if (!get_student_by_pos(f, i, student))
+                exit_code = (average(student->marks) >= file_av) && put_student_by_pos(f, j++, student);
             else
                 exit_code = EXIT_FAILURE;
         }
         if (!exit_code && j)
-        {
             cut(f, j);
-        }
     }
     return exit_code;
 }

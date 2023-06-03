@@ -8,12 +8,12 @@
 #include "binary_files.h"
 #include "constants.h"
 
-int read_file(FILE *f, int n);
+int read_file(FILE *f, int n, student_struct *student);
 
-int sort_file(FILE *f, int n);
+int sort_file(FILE *f, int n, student_struct *student1, student_struct *student2);
 
-int filter_file(FILE *fin, FILE *fout, const char *substr, int n);
+int filter_file(FILE *fin, FILE *fout, const char *substr, int n, student_struct *student);
 
-int delete_file(FILE *f, int n);
+int delete_file(FILE *f, int n, student_struct *student);
 
 #endif //LOGIC_H

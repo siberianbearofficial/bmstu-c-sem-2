@@ -54,7 +54,8 @@ int create(const char *path)
 {
     int exit_code = EXIT_FAILURE;
     FILE *f = fopen(path, WRITE_MODE);
-    exit_code = !f || generate_random_file(f) || fclose(f);
+    exit_code = !f || generate_random_file(f);
+    fclose(f);
     return exit_code;
 }
 
@@ -65,7 +66,8 @@ int print(const char *path)
     if (f)
     {
         int n;
-        exit_code = get_file_size(f, &n) || read_file(f, n) || fclose(f);
+        exit_code = get_file_size(f, &n) || read_file(f, n);
+        fclose(f);
     }
     return exit_code;
 }
@@ -77,7 +79,8 @@ int sort(const char *path)
     if (f)
     {
         int n;
-        exit_code = get_file_size(f, &n) || sort_file(f, n) || fclose(f);
+        exit_code = get_file_size(f, &n) || sort_file(f, n);
+        fclose(f);
     }
     return exit_code;
 }

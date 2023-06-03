@@ -9,7 +9,8 @@ int process(int argc, char **argv, double *nearest_value)
         if (fin)
         {
             double av;
-            exit_code = average(fin, &av) || nearest(fin, av, nearest_value) || fclose(fin);
+            exit_code = average(fin, &av) || nearest(fin, av, nearest_value);
+            fclose(fin);
         }
     }
     return exit_code;
