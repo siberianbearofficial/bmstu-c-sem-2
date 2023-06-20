@@ -1,0 +1,5 @@
+Onishchuk Ivan 3 5 6 3
+Parfenov Arsenij 5 3 4 2
+Serysheva Dar'ya 6 1 5 5
+Suhilina Aleksandra 6 2 1 2
+Tarasenko Egor 2 1 1 1

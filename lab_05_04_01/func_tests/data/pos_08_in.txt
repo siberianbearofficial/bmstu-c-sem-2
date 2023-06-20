@@ -1,0 +1,22 @@
+#define STUDENT 26s11s3x4i
+STUDENT Serysheva Dar'ya 6 9 5 5
+STUDENT Onishchuk Ivan 3 5 6 3
+STUDENT Parfenov Arsenij 5 3 4 2
+STUDENT Tarasenko Egor 2 1 9 9
+STUDENT Suhilina Aleksandra 6 2 9 2
+STUDENT Krivko Sergej 5 3 2 9
+STUDENT Soshnin Nikita 6 6 9 5
+STUDENT Kozin Mihail 9 3 4 2
+STUDENT Bugakov Ivan 5 6 6 3
+STUDENT SHirokov Andrej 6 9 2 2
+STUDENT Enikeev Timur 9 5 9 5
+STUDENT Sal'nikov Mihail 2 2 9 5
+STUDENT Slinyakov Mihail 6 4 5 3
+STUDENT Timofeev Daniil 3 5 3 2
+STUDENT YAkovlev Roman 9 4 2 9
+STUDENT Vavilova Varvara 9 9 9 5
+STUDENT Paramonova Ekaterina 5 2 5 5
+STUDENT Orlov Aleksej 5 9 5 9
+STUDENT Asadullin Tagir 2 3 6 2
+STUDENT ZHilyaev Anton 2 6 9 3
+STUDENT Volov Aleksandr 4 3 9 3

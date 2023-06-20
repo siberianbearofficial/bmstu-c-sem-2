@@ -1,0 +1,6 @@
+#define STUDENT 26s11s3x4i
+STUDENT Surname Name 3 5 6 3
+STUDENT Surname Name 5 3 4 2
+STUDENT Surname Name 6 1 5 5
+STUDENT Surname Name 6 2 1 2
+STUDENT Surname Name 2 1 1 1

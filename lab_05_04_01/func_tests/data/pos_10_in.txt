@@ -1,0 +1,6 @@
+#define STUDENT 26s11s3x4i
+STUDENT Serysheva Dar'ya 0 0 0 0
+STUDENT Onishchuk Ivan 0 0 0 0
+STUDENT Parfenov Arsenij 0 0 0 0
+STUDENT Tarasenko Egor 0 0 0 0
+STUDENT Suhilina Aleksandra 0 0 0 0

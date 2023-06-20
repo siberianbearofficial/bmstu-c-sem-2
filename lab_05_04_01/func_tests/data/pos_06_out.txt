@@ -1,0 +1,10 @@
+Serysheva Dar'ya 6 1 5 5
+Onishchuk Ivan 3 5 6 3
+Parfenov Arsenij 5 3 4 2
+Soshnin Nikita 6 6 1 5
+Bugakov Ivan 5 6 6 3
+Slinyakov Mihail 6 4 5 3
+Timofeev Daniil 3 5 3 2
+Paramonova Ekaterina 5 2 5 5
+Asadullin Tagir 2 3 6 2
+ZHilyaev Anton 2 6 2 3
