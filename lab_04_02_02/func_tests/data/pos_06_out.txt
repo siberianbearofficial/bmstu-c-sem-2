@@ -1,0 +1,5 @@
+Result: this no
+is yes
+a no
+string yes
+lol no

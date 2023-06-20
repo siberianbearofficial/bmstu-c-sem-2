@@ -1,0 +1,2 @@
+this word is in the first string
+and this one is in the second ))
