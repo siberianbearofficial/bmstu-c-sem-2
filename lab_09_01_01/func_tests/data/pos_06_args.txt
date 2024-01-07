@@ -1,0 +1,1 @@
+func_tests/data_files/pos_06_in1.txt title Avatar
