@@ -1,0 +1,8 @@
+Banana
+10
+Apple
+price
+Peach
+30
+Cucumber
+4
