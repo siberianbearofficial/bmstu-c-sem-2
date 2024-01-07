@@ -1,0 +1,1 @@
+func_tests/data_files/neg_04_in1.txt out/temp_1.txt f g
